@@ -35,6 +35,10 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbTimLop = new System.Windows.Forms.ComboBox();
+            this.cbbLocKhoi = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChuaTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoTK)).BeginInit();
             this.SuspendLayout();
@@ -164,10 +168,61 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(679, 82);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(177, 24);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Tìm Kiếm Theo Lớp";
+            // 
+            // cbbTimLop
+            // 
+            this.cbbTimLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTimLop.FormattingEnabled = true;
+            this.cbbTimLop.Items.AddRange(new object[] {
+            "Tất Cả"});
+            this.cbbTimLop.Location = new System.Drawing.Point(877, 79);
+            this.cbbTimLop.Name = "cbbTimLop";
+            this.cbbTimLop.Size = new System.Drawing.Size(131, 32);
+            this.cbbTimLop.TabIndex = 65;
+            // 
+            // cbbLocKhoi
+            // 
+            this.cbbLocKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLocKhoi.FormattingEnabled = true;
+            this.cbbLocKhoi.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Khối 10",
+            "Khối 11",
+            "Khối 12"});
+            this.cbbLocKhoi.Location = new System.Drawing.Point(877, 27);
+            this.cbbLocKhoi.Name = "cbbLocKhoi";
+            this.cbbLocKhoi.Size = new System.Drawing.Size(131, 32);
+            this.cbbLocKhoi.TabIndex = 67;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(679, 35);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(183, 24);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "Tìm Kiếm Theo Khối";
+            // 
             // uc_QuanLyTaiKhoanHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbbLocKhoi);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbbTimLop);
             this.Controls.Add(this.dgvChuaTK);
             this.Controls.Add(this.dgvCoTK);
             this.Controls.Add(this.label3);
@@ -203,5 +258,9 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbbTimLop;
+        private System.Windows.Forms.ComboBox cbbLocKhoi;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -24,7 +24,7 @@ namespace QLHOCSINHCAP3 {
         public frmDangNhap() {
             InitializeComponent();
             db = client.GetDatabase("QLHocSinhCap3");
-            collection = db.GetCollection<TaiKhoanHS>("TaiKhoanHocSinh");
+            collection = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
             
         }
         
@@ -75,6 +75,20 @@ namespace QLHOCSINHCAP3 {
                 //    return;
                 //}
             }
+            if (loaitk == "Học Sinh"){
+
+                var account = collection.Find(a => a.MSHS == tentk && a.MatKhau == matkhau);
+                if (account != null) {
+                    var maHocSinh = tentk;
+                    MessageBox.Show("Đăng nhập thành công!");
+
+                //    //this.Hide();
+                //    //giangVienform.ShowDialog();
+                //    //this.Show();
+                    return;
+                }
+            }
+
         }
 
         private void frmDangNhap_Load(object sender, EventArgs e) {

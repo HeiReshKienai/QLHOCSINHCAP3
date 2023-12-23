@@ -24,6 +24,7 @@ namespace QLHOCSINHCAP3 {
         uc_ThongTinCaNhan ucThongTinCaNhan;
         uc_QuanLyHocSinh ucQuanLyHocSinh;
         uc_QuanLyLopHoc ucQuanLyLopHoc;
+        uc_QuanLyTaiKhoanHocSinh ucQuanLyTaiKhoanHocSinh;
         private void mnTrangChu_Click(object sender, EventArgs e) {
 
             if (ucTrangChu == null) { 
@@ -90,6 +91,18 @@ namespace QLHOCSINHCAP3 {
             } else
                 ucQuanLyHocSinh.BringToFront();
             lblTieuDe.Caption = mnQuanLyHocSinh.Text;
+        }
+
+        private void mnQuanLyTaiKhoanHS_Click(object sender, EventArgs e) {
+            if (ucQuanLyTaiKhoanHocSinh == null) {
+                ucQuanLyTaiKhoanHocSinh = new uc_QuanLyTaiKhoanHocSinh();
+                ucQuanLyTaiKhoanHocSinh.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyTaiKhoanHocSinh);
+                ucQuanLyTaiKhoanHocSinh.BringToFront();
+
+            } else
+                ucQuanLyTaiKhoanHocSinh.BringToFront();
+            lblTieuDe.Caption = ucQuanLyTaiKhoanHocSinh.Text;
         }
     }
 }

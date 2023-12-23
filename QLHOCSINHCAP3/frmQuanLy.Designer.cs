@@ -31,17 +31,18 @@
             this.accordionControlSeparator3 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.mnThongTinCaNhan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyHocSinh = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQuanLyLopHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator5 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.mnDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.mnQuanLyLopHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.lblTieuDe = new DevExpress.XtraBars.BarStaticItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQuanLyTaiKhoanHS = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -114,6 +115,17 @@
             // 
             this.accordionControlSeparator4.Name = "accordionControlSeparator4";
             // 
+            // accordionControlElement2
+            // 
+            this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.mnQuanLyHocSinh,
+            this.mnQuanLyLopHoc,
+            this.mnQuanLyTaiKhoanHS});
+            this.accordionControlElement2.Expanded = true;
+            this.accordionControlElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement2.ImageOptions.Image")));
+            this.accordionControlElement2.Name = "accordionControlElement2";
+            this.accordionControlElement2.Text = "QUẢN LÝ";
+            // 
             // mnQuanLyHocSinh
             // 
             this.mnQuanLyHocSinh.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,6 +135,13 @@
             this.mnQuanLyHocSinh.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.mnQuanLyHocSinh.Text = "Quản Lý Học Sinh";
             this.mnQuanLyHocSinh.Click += new System.EventHandler(this.mnQuanLyHocSinh_Click);
+            // 
+            // mnQuanLyLopHoc
+            // 
+            this.mnQuanLyLopHoc.Name = "mnQuanLyLopHoc";
+            this.mnQuanLyLopHoc.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQuanLyLopHoc.Text = "Quản Lý Lớp Học";
+            this.mnQuanLyLopHoc.Click += new System.EventHandler(this.mnQuanLyLopHoc_Click);
             // 
             // accordionControlSeparator5
             // 
@@ -149,13 +168,6 @@
             this.mnDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.mnDangXuat.Text = "Đăng Xuất";
             this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
-            // 
-            // mnQuanLyLopHoc
-            // 
-            this.mnQuanLyLopHoc.Name = "mnQuanLyLopHoc";
-            this.mnQuanLyLopHoc.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnQuanLyLopHoc.Text = "Quản Lý Lớp Học";
-            this.mnQuanLyLopHoc.Click += new System.EventHandler(this.mnQuanLyLopHoc_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -200,15 +212,12 @@
             this.skinPaletteDropDownButtonItem1});
             this.fluentFormDefaultManager1.MaxItemId = 2;
             // 
-            // accordionControlElement2
+            // mnQuanLyTaiKhoanHS
             // 
-            this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.mnQuanLyHocSinh,
-            this.mnQuanLyLopHoc});
-            this.accordionControlElement2.Expanded = true;
-            this.accordionControlElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement2.ImageOptions.Image")));
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Text = "QUẢN LÝ";
+            this.mnQuanLyTaiKhoanHS.Name = "mnQuanLyTaiKhoanHS";
+            this.mnQuanLyTaiKhoanHS.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQuanLyTaiKhoanHS.Text = "Quản Lý Tài Khoản Học Sinh";
+            this.mnQuanLyTaiKhoanHS.Click += new System.EventHandler(this.mnQuanLyTaiKhoanHS_Click);
             // 
             // frmQuanLy
             // 
@@ -254,5 +263,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyLopHoc;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyHocSinh;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyTaiKhoanHS;
     }
 }

@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/QLHOCSINHCAP3/UI/uc_QuanLyTaiKhoanHocSinh.cs
+/QLHOCSINHCAP3/UI/uc_QuanLyTaiKhoanHocSinh.Designer.cs

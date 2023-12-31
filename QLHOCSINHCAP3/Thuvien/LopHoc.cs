@@ -17,15 +17,13 @@ namespace QLHOCSINHCAP3.Thuvien {
         public string Khoi { get; set; }
         [BsonElement("GVCN")]
         public string GVCN { get; set; }
-        [BsonElement("SiSo")]
-        public string SiSo { get; set; }
+
        
 
-        public LopHoc(string malop, string khoi, string gvcn, string siso) {
+        public LopHoc(string malop, string khoi, string gvcn) {
             MaLop = malop;
             Khoi = khoi;
             GVCN = gvcn;
-            SiSo = siso;
         }
     }
 }

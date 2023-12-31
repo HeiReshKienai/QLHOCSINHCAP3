@@ -60,6 +60,7 @@
             this.llbDangKy.TabIndex = 24;
             this.llbDangKy.TabStop = true;
             this.llbDangKy.Text = "Đăng ký tài khoản";
+            this.llbDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbDangKy_LinkClicked);
             // 
             // llbQuenMatKhau
             // 
@@ -173,6 +174,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "frmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.ResumeLayout(false);

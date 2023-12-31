@@ -1,5 +1,5 @@
 ﻿namespace QLHOCSINHCAP3.UI {
-    partial class uc_QuanLyTaiKhoanHocSinh {
+    partial class uc_QuanLyTaiKhoanGiaoVien {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -226,7 +226,7 @@
             this.label6.TabIndex = 56;
             this.label6.Text = "Học Sinh  Có Tài Khoản";
             // 
-            // uc_QuanLyTaiKhoanHocSinh
+            // uc_QuanLyTaiKhoanGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,8 +247,8 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
-            this.Name = "uc_QuanLyTaiKhoanHocSinh";
-            this.Size = new System.Drawing.Size(1191, 629);
+            this.Name = "uc_QuanLyTaiKhoanGiaoVien";
+            this.Size = new System.Drawing.Size(917, 629);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChuaTK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoTK)).EndInit();
             this.ResumeLayout(false);

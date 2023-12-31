@@ -1,5 +1,5 @@
 ﻿namespace QLHOCSINHCAP3.UI {
-    partial class uc_QuanLyLopHoc {
+    partial class uc_QuanLyMonHoc {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_QuanLyLopHoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_QuanLyMonHoc));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -35,23 +35,18 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbGVCN = new System.Windows.Forms.ComboBox();
-            this.cbbKhoi = new System.Windows.Forms.ComboBox();
-            this.lblGioitinh = new System.Windows.Forms.Label();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
-            this.lblDiachi = new System.Windows.Forms.Label();
+            this.txtTenMon = new System.Windows.Forms.TextBox();
+            this.txtMaMon = new System.Windows.Forms.TextBox();
             this.lblHoten = new System.Windows.Forms.Label();
             this.lblTuoi = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.dgvQLLop = new System.Windows.Forms.DataGridView();
+            this.dgvQLMon = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbLocKhoi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQLLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQLMon)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -73,15 +68,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(960, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(680, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 526);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 418);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(960, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(680, 0);
             // 
             // barDockControlLeft
             // 
@@ -89,15 +84,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 526);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 418);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(960, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(680, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 526);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 418);
             // 
             // barButtonItem1
             // 
@@ -134,79 +129,36 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbbGVCN);
-            this.groupBox1.Controls.Add(this.cbbKhoi);
-            this.groupBox1.Controls.Add(this.lblGioitinh);
-            this.groupBox1.Controls.Add(this.txtMaLop);
-            this.groupBox1.Controls.Add(this.lblDiachi);
+            this.groupBox1.Controls.Add(this.txtTenMon);
+            this.groupBox1.Controls.Add(this.txtMaMon);
             this.groupBox1.Controls.Add(this.lblHoten);
             this.groupBox1.Controls.Add(this.lblTuoi);
-            this.groupBox1.Location = new System.Drawing.Point(31, 143);
+            this.groupBox1.Location = new System.Drawing.Point(27, 104);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(350, 222);
+            this.groupBox1.Size = new System.Drawing.Size(350, 173);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin Lớp Học";
+            this.groupBox1.Text = "Thông Tin Môn Học";
             // 
-            // cbbGVCN
+            // txtTenMon
             // 
-            this.cbbGVCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbGVCN.FormattingEnabled = true;
-            this.cbbGVCN.Items.AddRange(new object[] {
-            "Khối 10",
-            "Khối 11",
-            "Khối 12"});
-            this.cbbGVCN.Location = new System.Drawing.Point(143, 132);
-            this.cbbGVCN.Name = "cbbGVCN";
-            this.cbbGVCN.Size = new System.Drawing.Size(142, 32);
-            this.cbbGVCN.TabIndex = 4;
+            this.txtTenMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenMon.Location = new System.Drawing.Point(143, 104);
+            this.txtTenMon.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenMon.Name = "txtTenMon";
+            this.txtTenMon.Size = new System.Drawing.Size(142, 29);
+            this.txtTenMon.TabIndex = 2;
             // 
-            // cbbKhoi
+            // txtMaMon
             // 
-            this.cbbKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbKhoi.FormattingEnabled = true;
-            this.cbbKhoi.Items.AddRange(new object[] {
-            "Khối 10",
-            "Khối 11",
-            "Khối 12"});
-            this.cbbKhoi.Location = new System.Drawing.Point(143, 80);
-            this.cbbKhoi.Name = "cbbKhoi";
-            this.cbbKhoi.Size = new System.Drawing.Size(142, 32);
-            this.cbbKhoi.TabIndex = 3;
-            this.cbbKhoi.SelectedIndexChanged += new System.EventHandler(this.cbbLocKhoi_SelectedIndexChanged);
-            // 
-            // lblGioitinh
-            // 
-            this.lblGioitinh.AutoSize = true;
-            this.lblGioitinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGioitinh.Location = new System.Drawing.Point(24, 116);
-            this.lblGioitinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGioitinh.Name = "lblGioitinh";
-            this.lblGioitinh.Size = new System.Drawing.Size(98, 24);
-            this.lblGioitinh.TabIndex = 0;
-            this.lblGioitinh.Text = "Giáo Viên ";
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.Location = new System.Drawing.Point(143, 36);
-            this.txtMaLop.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(142, 29);
-            this.txtMaLop.TabIndex = 2;
-            // 
-            // lblDiachi
-            // 
-            this.lblDiachi.AutoSize = true;
-            this.lblDiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiachi.Location = new System.Drawing.Point(24, 140);
-            this.lblDiachi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiachi.Name = "lblDiachi";
-            this.lblDiachi.Size = new System.Drawing.Size(106, 24);
-            this.lblDiachi.TabIndex = 0;
-            this.lblDiachi.Text = "Chủ Nhiệm";
+            this.txtMaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaMon.Location = new System.Drawing.Point(143, 36);
+            this.txtMaMon.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaMon.Name = "txtMaMon";
+            this.txtMaMon.Size = new System.Drawing.Size(142, 29);
+            this.txtMaMon.TabIndex = 2;
             // 
             // lblHoten
             // 
@@ -215,25 +167,25 @@
             this.lblHoten.Location = new System.Drawing.Point(24, 36);
             this.lblHoten.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHoten.Name = "lblHoten";
-            this.lblHoten.Size = new System.Drawing.Size(73, 24);
+            this.lblHoten.Size = new System.Drawing.Size(79, 24);
             this.lblHoten.TabIndex = 0;
-            this.lblHoten.Text = "Mã Lớp";
+            this.lblHoten.Text = "Mã Môn";
             // 
             // lblTuoi
             // 
             this.lblTuoi.AutoSize = true;
             this.lblTuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuoi.Location = new System.Drawing.Point(24, 80);
+            this.lblTuoi.Location = new System.Drawing.Point(24, 104);
             this.lblTuoi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTuoi.Name = "lblTuoi";
-            this.lblTuoi.Size = new System.Drawing.Size(48, 24);
+            this.lblTuoi.Size = new System.Drawing.Size(87, 24);
             this.lblTuoi.TabIndex = 0;
-            this.lblTuoi.Text = "Khối";
+            this.lblTuoi.Text = "Tên Môn";
             // 
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(275, 397);
+            this.btnSua.Location = new System.Drawing.Point(269, 307);
             this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(92, 43);
@@ -245,7 +197,7 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(160, 397);
+            this.btnXoa.Location = new System.Drawing.Point(154, 307);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(92, 43);
@@ -257,7 +209,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(51, 397);
+            this.btnThem.Location = new System.Drawing.Point(45, 307);
             this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(93, 43);
@@ -266,21 +218,21 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // dgvQLLop
+            // dgvQLMon
             // 
-            this.dgvQLLop.AllowUserToAddRows = false;
-            this.dgvQLLop.AllowUserToDeleteRows = false;
-            this.dgvQLLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQLLop.Location = new System.Drawing.Point(398, 143);
-            this.dgvQLLop.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvQLLop.Name = "dgvQLLop";
-            this.dgvQLLop.ReadOnly = true;
-            this.dgvQLLop.RowHeadersWidth = 100;
-            this.dgvQLLop.RowTemplate.Height = 33;
-            this.dgvQLLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQLLop.Size = new System.Drawing.Size(399, 244);
-            this.dgvQLLop.TabIndex = 25;
-            this.dgvQLLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQLSV_CellClick);
+            this.dgvQLMon.AllowUserToAddRows = false;
+            this.dgvQLMon.AllowUserToDeleteRows = false;
+            this.dgvQLMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQLMon.Location = new System.Drawing.Point(397, 104);
+            this.dgvQLMon.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvQLMon.Name = "dgvQLMon";
+            this.dgvQLMon.ReadOnly = true;
+            this.dgvQLMon.RowHeadersWidth = 100;
+            this.dgvQLMon.RowTemplate.Height = 33;
+            this.dgvQLMon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvQLMon.Size = new System.Drawing.Size(267, 162);
+            this.dgvQLMon.TabIndex = 25;
+            this.dgvQLMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQLSV_CellClick);
             // 
             // label2
             // 
@@ -289,60 +241,32 @@
             this.label2.Location = new System.Drawing.Point(82, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 33);
+            this.label2.Size = new System.Drawing.Size(249, 33);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Thông Tin Lớp Học";
+            this.label2.Text = "Quản Lý Môn Học";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(422, 75);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Lọc Theo Khối";
-            // 
-            // cbbLocKhoi
-            // 
-            this.cbbLocKhoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbLocKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbLocKhoi.FormattingEnabled = true;
-            this.cbbLocKhoi.Items.AddRange(new object[] {
-            "Tất Cả",
-            "Khối 10",
-            "Khối 11",
-            "Khối 12"});
-            this.cbbLocKhoi.Location = new System.Drawing.Point(620, 67);
-            this.cbbLocKhoi.Name = "cbbLocKhoi";
-            this.cbbLocKhoi.Size = new System.Drawing.Size(131, 32);
-            this.cbbLocKhoi.TabIndex = 3;
-            this.cbbLocKhoi.SelectedIndexChanged += new System.EventHandler(this.cbbLocKhoi_SelectedIndexChanged);
-            // 
-            // uc_QuanLyLopHoc
+            // uc_QuanLyMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cbbLocKhoi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvQLLop);
+            this.Controls.Add(this.dgvQLMon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "uc_QuanLyLopHoc";
-            this.Size = new System.Drawing.Size(960, 526);
+            this.Name = "uc_QuanLyMonHoc";
+            this.Size = new System.Drawing.Size(680, 418);
+            this.Load += new System.EventHandler(this.uc_QuanLyMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQLLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQLMon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,19 +284,14 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblGioitinh;
-        private System.Windows.Forms.TextBox txtMaLop;
-        private System.Windows.Forms.Label lblDiachi;
+        private System.Windows.Forms.TextBox txtTenMon;
+        private System.Windows.Forms.TextBox txtMaMon;
         private System.Windows.Forms.Label lblHoten;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.DataGridView dgvQLLop;
+        private System.Windows.Forms.DataGridView dgvQLMon;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTuoi;
-        private System.Windows.Forms.ComboBox cbbLocKhoi;
-        private System.Windows.Forms.ComboBox cbbKhoi;
-        private System.Windows.Forms.ComboBox cbbGVCN;
     }
 }

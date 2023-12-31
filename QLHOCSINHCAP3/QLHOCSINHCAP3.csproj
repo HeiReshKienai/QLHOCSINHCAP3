@@ -132,6 +132,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKy.Designer.cs">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
     </Compile>
     <Compile Include="FormChinh.Designer.cs">
       <DependentUpon>FormChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHocSinh.Designer.cs">
+      <DependentUpon>frmHocSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuanLy.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thuvien\GiaoVien.cs" />
+    <Compile Include="Thuvien\MonHoc.cs" />
+    <Compile Include="Thuvien\TaiKhoanGiaoVien.cs" />
     <Compile Include="Thuvien\TaiKhoanHocSinh.cs" />
     <Compile Include="Thuvien\LopHoc.cs" />
     <Compile Include="Thuvien\HocSinh.cs" />
@@ -173,17 +188,35 @@
     <Compile Include="UI\uc_LopDay.Designer.cs">
       <DependentUpon>uc_LopDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_QuanLyGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_QuanLyGiaoVien.Designer.cs">
+      <DependentUpon>uc_QuanLyGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_QuanLyHocSinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\uc_QuanLyHocSinh.Designer.cs">
       <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_QuanLyMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_QuanLyMonHoc.Designer.cs">
+      <DependentUpon>uc_QuanLyMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_QuanLyLopHoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\uc_QuanLyLopHoc.Designer.cs">
       <DependentUpon>uc_QuanLyLopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_QuanLyTaiKhoanGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_QuanLyTaiKhoanGiaoVien.Designer.cs">
+      <DependentUpon>uc_QuanLyTaiKhoanGiaoVien.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_QuanLyTaiKhoanHocSinh.cs">
       <SubType>UserControl</SubType>
@@ -212,11 +245,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKy.resx">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHocSinh.resx">
+      <DependentUpon>frmHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLy.resx">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
@@ -240,11 +279,20 @@
     <EmbeddedResource Include="UI\uc_LopDay.resx">
       <DependentUpon>uc_LopDay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_QuanLyGiaoVien.resx">
+      <DependentUpon>uc_QuanLyGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_QuanLyHocSinh.resx">
       <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_QuanLyMonHoc.resx">
+      <DependentUpon>uc_QuanLyMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_QuanLyLopHoc.resx">
       <DependentUpon>uc_QuanLyLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_QuanLyTaiKhoanGiaoVien.resx">
+      <DependentUpon>uc_QuanLyTaiKhoanGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_QuanLyTaiKhoanHocSinh.resx">
       <DependentUpon>uc_QuanLyTaiKhoanHocSinh.cs</DependentUpon>

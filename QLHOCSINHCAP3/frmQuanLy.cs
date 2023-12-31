@@ -25,17 +25,24 @@ namespace QLHOCSINHCAP3 {
         uc_QuanLyHocSinh ucQuanLyHocSinh;
         uc_QuanLyLopHoc ucQuanLyLopHoc;
         uc_QuanLyTaiKhoanHocSinh ucQuanLyTaiKhoanHocSinh;
+        uc_QuanLyTaiKhoanGiaoVien ucQuanLyTaiKhoanGiaoVien;
+        uc_QuanLyGiaoVien ucQuanLyGiaoVien;
+        uc_QuanLyMonHoc ucQuanLyMonHoc;
         private void mnTrangChu_Click(object sender, EventArgs e) {
 
-            if (ucTrangChu == null) { 
+            if (ucTrangChu == null) {
                 ucTrangChu = new uc_TrangChu();
                 ucTrangChu.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucTrangChu);
-                ucTrangChu.BringToFront();
 
+
+            } else {
+                mainContainer.Controls.Remove(ucTrangChu);
+                ucTrangChu = new uc_TrangChu();
+                ucTrangChu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucTrangChu);
             }
-            else
-                ucTrangChu.BringToFront();
+            ucTrangChu.BringToFront();
             lblTieuDe.Caption = mnTrangChu.Text;
         }
 
@@ -44,10 +51,16 @@ namespace QLHOCSINHCAP3 {
                 ucThongTinCaNhan = new uc_ThongTinCaNhan();
                 ucThongTinCaNhan.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucThongTinCaNhan);
-                ucThongTinCaNhan.BringToFront();
 
-            } else
-                ucThongTinCaNhan.BringToFront();
+
+            } else {
+                mainContainer.Controls.Remove(ucThongTinCaNhan);
+                ucThongTinCaNhan = new uc_ThongTinCaNhan();
+                ucThongTinCaNhan.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucThongTinCaNhan);
+            }
+
+            ucThongTinCaNhan.BringToFront();
             lblTieuDe.Caption = mnThongTinCaNhan.Text;
         }
 
@@ -74,10 +87,16 @@ namespace QLHOCSINHCAP3 {
                 ucQuanLyLopHoc = new uc_QuanLyLopHoc();
                 ucQuanLyLopHoc.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucQuanLyLopHoc);
-                ucQuanLyLopHoc.BringToFront();
 
-            } else
-                ucQuanLyLopHoc.BringToFront();
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyLopHoc);
+                ucQuanLyLopHoc = new uc_QuanLyLopHoc();
+                ucQuanLyLopHoc.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyLopHoc);
+
+            }
+            ucQuanLyLopHoc.BringToFront();
             lblTieuDe.Caption = mnQuanLyLopHoc.Text;
         }
 
@@ -86,10 +105,16 @@ namespace QLHOCSINHCAP3 {
                 ucQuanLyHocSinh = new uc_QuanLyHocSinh();
                 ucQuanLyHocSinh.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucQuanLyHocSinh);
-                ucQuanLyHocSinh.BringToFront();
 
-            } else
-                ucQuanLyHocSinh.BringToFront();
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyHocSinh);
+                ucQuanLyHocSinh = new uc_QuanLyHocSinh();
+                ucQuanLyHocSinh.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyHocSinh);
+
+            }
+            ucQuanLyHocSinh.BringToFront();
             lblTieuDe.Caption = mnQuanLyHocSinh.Text;
         }
 
@@ -98,11 +123,69 @@ namespace QLHOCSINHCAP3 {
                 ucQuanLyTaiKhoanHocSinh = new uc_QuanLyTaiKhoanHocSinh();
                 ucQuanLyTaiKhoanHocSinh.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucQuanLyTaiKhoanHocSinh);
-                ucQuanLyTaiKhoanHocSinh.BringToFront();
 
-            } else
-                ucQuanLyTaiKhoanHocSinh.BringToFront();
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyTaiKhoanHocSinh);
+                ucQuanLyTaiKhoanHocSinh = new uc_QuanLyTaiKhoanHocSinh();
+                ucQuanLyTaiKhoanHocSinh.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyTaiKhoanHocSinh);
+            }
+            ucQuanLyTaiKhoanHocSinh.BringToFront();
             lblTieuDe.Caption = ucQuanLyTaiKhoanHocSinh.Text;
+        }
+
+        private void mnQuanLyTaiKhoanGV_Click(object sender, EventArgs e) {
+            if (ucQuanLyTaiKhoanGiaoVien == null) {
+                ucQuanLyTaiKhoanGiaoVien = new uc_QuanLyTaiKhoanGiaoVien();
+                ucQuanLyTaiKhoanGiaoVien.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyTaiKhoanGiaoVien);
+
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyTaiKhoanGiaoVien);
+                ucQuanLyTaiKhoanGiaoVien = new uc_QuanLyTaiKhoanGiaoVien();
+                ucQuanLyTaiKhoanGiaoVien.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyTaiKhoanGiaoVien);
+            }
+            ucQuanLyTaiKhoanGiaoVien.BringToFront();
+            lblTieuDe.Caption = ucQuanLyTaiKhoanGiaoVien.Text;
+        }
+
+        private void mnQuanLyGiaoVien_Click(object sender, EventArgs e) {
+            if (ucQuanLyGiaoVien == null) {
+                ucQuanLyGiaoVien = new uc_QuanLyGiaoVien();
+                ucQuanLyGiaoVien.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyGiaoVien);
+
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyGiaoVien);
+                ucQuanLyGiaoVien = new uc_QuanLyGiaoVien();
+                ucQuanLyGiaoVien.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyGiaoVien);
+
+            }
+
+            ucQuanLyGiaoVien.BringToFront();
+            lblTieuDe.Caption = mnQuanLyGiaoVien.Text;
+        }
+
+        private void mnQuanLyMonHoc_Click(object sender, EventArgs e) {
+            if (ucQuanLyMonHoc == null) {
+                ucQuanLyMonHoc = new uc_QuanLyMonHoc();
+                ucQuanLyMonHoc.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyMonHoc);
+
+
+            } else {
+                mainContainer.Controls.Remove(ucQuanLyMonHoc);
+                ucQuanLyMonHoc = new uc_QuanLyMonHoc();
+                ucQuanLyMonHoc.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucQuanLyMonHoc);
+            }
+            ucQuanLyMonHoc.BringToFront();
+            lblTieuDe.Caption = mnQuanLyMonHoc.Text;
         }
     }
 }

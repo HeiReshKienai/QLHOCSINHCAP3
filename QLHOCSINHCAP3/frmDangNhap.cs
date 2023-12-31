@@ -9,29 +9,47 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Collections.ObjectModel;
 using QLHOCSINHCAP3.Thuvien;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace QLHOCSINHCAP3 {
     public partial class frmDangNhap : Form {
         private IMongoClient client = new MongoClient("mongodb://localhost:27017");
         private IMongoDatabase db;
-        private IMongoCollection<TaiKhoanHocSinh> collection;
-
+        private IMongoCollection<TaiKhoanHocSinh> collectionTaiKhoanHocSinh;
+        private IMongoCollection<TaiKhoanGiaoVien> collectionTaiKhoanGiaoVien;
         public frmDangNhap() {
             InitializeComponent();
             db = client.GetDatabase("QLHocSinhCap3");
-            collection = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
-            
+            collectionTaiKhoanHocSinh = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
+            collectionTaiKhoanGiaoVien = db.GetCollection<TaiKhoanGiaoVien>("TaiKhoanGiaoVien");
+
         }
-        
+
+        public static string HashPassword(string password) {
+            using (SHA256 sha256 = SHA256.Create()) {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++) {
+                    builder.Append(bytes[i].ToString("x2")); // Chuyển đổi byte thành dạng chuỗi hex
+                }
+                return builder.ToString();
+            }
+        }
+
+        public static bool VerifyPassword(string enteredPassword, string storedHashedPassword) {
+            string hashedEnteredPassword = HashPassword(enteredPassword);
+            return string.Equals(hashedEnteredPassword, storedHashedPassword, StringComparison.OrdinalIgnoreCase);
+        }
 
         private void btnDangNhap_Click(object sender, EventArgs e) {
             string tentk = txtTaiKhoan.Text;
             string matkhau = txtMatKhau.Text;
+            string hashPassword = HashPassword(matkhau);
             string loaitk = cbbLoaiTaiKhoan.SelectedItem.ToString();
 
 
@@ -50,11 +68,11 @@ namespace QLHOCSINHCAP3 {
                 return;
             }
             if (tentk == "admin" && matkhau == "admin") {
-                //AdminForm adminForm = new AdminForm();
-                //this.Hide();
-                //adminForm.ShowDialog();
-                //this.Show();
-                //return;
+                frmQuanLy adminForm = new frmQuanLy();
+                this.Hide();
+                adminForm.ShowDialog();
+                this.Show();
+                return;
             }
 
             if (loaitk == "--Chọn loại tài khoản--") {
@@ -63,28 +81,28 @@ namespace QLHOCSINHCAP3 {
                 return;
             }
             if (loaitk == "Giáo Viên") {
-                
-                //var account = collection.Find(a => a.MaGV == tentk && a.MatKhau == matkhau);
-                //if (account != null) {
-                //    var maGiangVien = account.MaGV;
-                //    MessageBox.Show("Đăng nhập thành công!");
 
-                //    //this.Hide();
-                //    //giangVienform.ShowDialog();
-                //    //this.Show();
-                //    return;
-                //}
+                var account = collectionTaiKhoanGiaoVien.Find(a => a.MaGV == tentk && a.MatKhau == hashPassword).ToList();
+                if (account.Count > 0) {
+                    var maHocSinh = tentk;
+                    MessageBox.Show("Đăng nhập thành công!");
+                    frmGiaoVien giaovienfrm = new frmGiaoVien();
+                    this.Hide();
+                    giaovienfrm.ShowDialog();
+                    this.Show();
+                    return;
+                }
             }
             if (loaitk == "Học Sinh"){
 
-                var account = collection.Find(a => a.MSHS == tentk && a.MatKhau == matkhau);
-                if (account != null) {
+                var account = collectionTaiKhoanHocSinh.Find(a => a.MSHS == tentk && a.MatKhau == hashPassword).ToList();
+                if (account.Count >0) {
                     var maHocSinh = tentk;
                     MessageBox.Show("Đăng nhập thành công!");
-
-                //    //this.Hide();
-                //    //giangVienform.ShowDialog();
-                //    //this.Show();
+                    frmGiaoVien giaovienfrm = new frmGiaoVien();
+                    this.Hide();
+                    giaovienfrm.ShowDialog();
+                    this.Show();
                     return;
                 }
             }
@@ -96,13 +114,11 @@ namespace QLHOCSINHCAP3 {
 
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-
-
-            //LopHoc sv = new LopHoc(txtTaiKhoan.Text, txtMatKhau.Text, txtTaiKhoan.Text, txtMatKhau.Text);
-
-            //collection.InsertOne(sv);
-            //MessageBox.Show("Them thanh cong!");
+        private void llbDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            frmDangKy dangKy = new frmDangKy();
+            this.Hide();
+            dangKy.ShowDialog();
+            this.Show();
         }
     }
 }

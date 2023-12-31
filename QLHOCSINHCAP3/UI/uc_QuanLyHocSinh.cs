@@ -15,14 +15,14 @@ namespace QLHOCSINHCAP3.UI {
     public partial class uc_QuanLyHocSinh : UserControl {
         private IMongoClient client = new MongoClient("mongodb://localhost:27017/QLHocSinhCap3");
         private IMongoDatabase db;
-        private IMongoCollection<HocSinh> collection;
-        private IMongoCollection<LopHoc> collection1;
+        private IMongoCollection<HocSinh> collectionHocSinh;
+        private IMongoCollection<LopHoc> collectionLopHoc;
 
       
         private void readData() {
-            var data = collection.Find(new BsonDocument()).ToList();
+            var data = collectionHocSinh.Find(new BsonDocument()).ToList();
 
-            var data1 = collection1.Distinct<string>("MaLop", new BsonDocument()).ToList();
+            var data1 = collectionLopHoc.Distinct<string>("MaLop", new BsonDocument()).ToList();
 
             dgvQLHS.DataSource = data;
             cbbLop.DataSource = data1;
@@ -58,8 +58,8 @@ namespace QLHOCSINHCAP3.UI {
             InitializeComponent();
 
             db = client.GetDatabase("QLHocSinhCap3");
-            collection = db.GetCollection<HocSinh>("HocSinh");
-            collection1 = db.GetCollection<LopHoc>("LopHoc");
+            collectionHocSinh = db.GetCollection<HocSinh>("HocSinh");
+            collectionLopHoc = db.GetCollection<LopHoc>("LopHoc");
             readData();
             int currentYear = DateTime.Now.Year;
 
@@ -94,7 +94,7 @@ namespace QLHOCSINHCAP3.UI {
         private void btnThem_Click(object sender, EventArgs e) {
             HocSinh sv = new HocSinh(txtMa.Text, txtHoTen.Text, dtpNgaySinh.Text, cbbGioiTinh.Text, cbbLop.Text,txtDiaChi.Text, txtSdt.Text, txtEmai.Text,txtHoTenPhuHuynh.Text, cbbNamHoc.Text);
 
-            collection.InsertOne(sv);
+            collectionHocSinh.InsertOne(sv);
 
             readData();
             ClearTextBoxes();
@@ -109,7 +109,7 @@ namespace QLHOCSINHCAP3.UI {
             string objectIdToDelete = dgvQLHS.CurrentRow.Cells[0].Value.ToString();
             var filter = Builders<HocSinh>.Filter.Eq("_id", ObjectId.Parse(objectIdToDelete));
 
-            collection.DeleteOne(filter);
+            collectionHocSinh.DeleteOne(filter);
 
             readData();
             ClearTextBoxes();
@@ -137,7 +137,7 @@ namespace QLHOCSINHCAP3.UI {
              
         
 
-            collection.UpdateOne(s => s.Id == hs.Id, update);
+            collectionHocSinh.UpdateOne(s => s.Id == hs.Id, update);
 
             readData();
             ClearTextBoxes();
@@ -165,10 +165,10 @@ namespace QLHOCSINHCAP3.UI {
 
         private void cbbTimLop_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedLop = cbbTimLop.Text;
-            var filteredData = collection.Find(new BsonDocument()).ToList();
+            var filteredData = collectionHocSinh.Find(new BsonDocument()).ToList();
             if (cbbTimLop.Text != "Tất Cả") {
                 var filter = Builders<HocSinh>.Filter.Eq("Lop", selectedLop);
-                filteredData = collection.Find(filter).ToList();
+                filteredData = collectionHocSinh.Find(filter).ToList();
             }
             dgvQLHS.DataSource = filteredData;
         }

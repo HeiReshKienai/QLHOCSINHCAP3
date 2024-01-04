@@ -18,41 +18,58 @@ namespace QLHOCSINHCAP3.UI {
         private IMongoClient client = new MongoClient("mongodb://localhost:27017");
         private IMongoDatabase db;
         private IMongoCollection<TaiKhoanGiaoVien> collectionTaiKhoanGiaoVien;
-        private IMongoCollection<LopHoc> collectionLopHoc;
+        private IMongoCollection<MonHoc> collectionMonHoc;
         private IMongoCollection<GiaoVien> collectionGiaoVien;
 
         private void readData() {
-            var data = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
-            var data2 = collectionGiaoVien.Find(new BsonDocument()).ToList();
+            var dataTaiKhoanGiaoVien = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
+            var dataGiaoVien = collectionGiaoVien.Find(new BsonDocument()).ToList();
 
-            var filteredData2 = data2.Where(item2 => !data.Any(item1 => item1.MaGV == item2.MaGV)).ToList();
+            var LocChuaTK = dataGiaoVien.Where(item2 => !dataTaiKhoanGiaoVien.Any(item1 => item1.MaGV == item2.MaGV)).ToList();
 
-            dgvCoTK.DataSource = data;
-            dgvChuaTK.DataSource = filteredData2;
+            dgvCoTK.DataSource = dataTaiKhoanGiaoVien;
+            dgvChuaTK.DataSource = LocChuaTK;
 
 
 
-            var data1 = collectionLopHoc.Distinct<string>("MaLop", new BsonDocument()).ToList();
-            var tempData = new List<string>(data1);
+            var dataMonHoc = collectionMonHoc.Distinct<string>("TenMon", new BsonDocument()).ToList();
+            var tempData = new List<string>(dataMonHoc);
             tempData.Insert(0, "Tất Cả");
 
-            cbbTimLop.DataSource = tempData;
+            cbbTimMon.DataSource = tempData;
+
+            dgvCoTK.Columns["Id"].Visible = false;
+            dgvCoTK.Columns["MaGV"].HeaderText = "Mã Giáo Viên";
+            dgvCoTK.Columns["MaGV"].Width = 150;
+            dgvCoTK.Columns["MatKhau"].HeaderText = "Mật Khẩu";
+            dgvCoTK.Columns["MatKhau"].Width = 150;
+
+            dgvCoTK.Columns["Email"].Width = 200;
+
+            dgvChuaTK.Columns["Id"].Visible = false;
+            dgvChuaTK.Columns["MaGV"].HeaderText = "Mã Giáo Viên";
+            dgvChuaTK.Columns["MaGV"].Width = 150;
+            dgvChuaTK.Columns["HoTen"].HeaderText = "Họ Tên";
+            dgvChuaTK.Columns["HoTen"].Width = 150;
+            dgvChuaTK.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+            dgvChuaTK.Columns["NgaySinh"].Width = 150;
+            dgvChuaTK.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dgvChuaTK.Columns["GioiTinh"].Width = 75;
+            dgvChuaTK.Columns["MonDay"].HeaderText = "Môn Dạy";
+            dgvChuaTK.Columns["MonDay"].Width = 150;
+            dgvChuaTK.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+            dgvChuaTK.Columns["DiaChi"].Width = 150;
+            dgvChuaTK.Columns["SDT"].HeaderText = "Số Điện Thoại";
+            dgvChuaTK.Columns["SDT"].Width = 150;
 
 
-            //dgvQLLop.Columns["Khoi"].HeaderText = "Khối";
-            //dgvQLLop.Columns["Khoi"].Width = 150;
-            //dgvQLLop.Columns["MaLop"].HeaderText = "Mã Lớp";
-            //dgvQLLop.Columns["MaLop"].Width = 150;
-            //dgvQLLop.Columns["SiSo"].HeaderText = "Sĩ Số";
-            //dgvQLLop.Columns["SiSo"].Width = 150;
-            //dgvQLLop.Columns["GVCN"].HeaderText = "Giáo Viên Chủ Nhiệm";
-            //dgvQLLop.Columns["GVCN"].Width = 150;
+
         }
         public uc_QuanLyTaiKhoanGiaoVien() {
             InitializeComponent();
             db = client.GetDatabase("QLHocSinhCap3");
             collectionTaiKhoanGiaoVien = db.GetCollection<TaiKhoanGiaoVien>("TaiKhoanGiaoVien");
-            collectionLopHoc = db.GetCollection<LopHoc>("LopHoc");
+            collectionMonHoc = db.GetCollection<MonHoc>("MonHoc");
             collectionGiaoVien = db.GetCollection<GiaoVien>("GiaoVien");
             readData();
 
@@ -77,15 +94,43 @@ namespace QLHOCSINHCAP3.UI {
 
         private void ClearTextBoxes() {
 
-            txtMaHS.Clear();
+            txtMaGV.Clear();
             txtMatKhau.Clear();
             txtEmail.Clear();
+            dgvCoTK.ClearSelection();
+            dgvChuaTK.ClearSelection();
 
         }
         private void btnThem_Click(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(txtMaGV.Text)) {
+                MessageBox.Show("Vui lòng nhập Mã Giáo Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var GiaoVienFilter = Builders<GiaoVien>.Filter.Eq("MaGV", txtMaGV.Text);
+            if (!collectionGiaoVien.Find(GiaoVienFilter).Any()) {
+                MessageBox.Show("Không tìm thấy Giáo Viên có mã này vui lòng kiểm tra lại mã.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var TaiKhoanGiaoVienFilter = Builders<TaiKhoanGiaoVien>.Filter.Eq("MaGV", txtMaGV.Text);
+            if (collectionTaiKhoanGiaoVien.Find(TaiKhoanGiaoVienFilter).Any()) {
+                MessageBox.Show("Giáo Viên có Mã Giáo Viên này đã có tài khoản. Vui lòng chọn mã Giáo Viên  khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtMatKhau.Text)) {
+                MessageBox.Show("Vui lòng nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             string matkhau = txtMatKhau.Text;
             string hashPassword = HashPassword(matkhau);
-            TaiKhoanGiaoVien tk = new TaiKhoanGiaoVien(txtMaHS.Text, hashPassword, txtEmail.Text);
+
+            if (txtEmail.Text == "") {
+                txtEmail.Text = "Chưa Có Email";
+            }
+            TaiKhoanGiaoVien tk = new TaiKhoanGiaoVien(txtMaGV.Text, hashPassword, txtEmail.Text);
 
             collectionTaiKhoanGiaoVien.InsertOne(tk);
 
@@ -112,8 +157,17 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng chọn một tài Khoản để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (string.IsNullOrEmpty(txtMatKhau.Text)) {
+                MessageBox.Show("Vui lòng nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string matkhau = txtMatKhau.Text;
+            string hashPassword = HashPassword(matkhau);
+            if (txtEmail.Text == "") {
+                txtEmail.Text = "Chưa Có Email";
+            }
 
-            TaiKhoanGiaoVien tk = new TaiKhoanGiaoVien(txtMaHS.Text, txtMatKhau.Text, txtEmail.Text);
+            TaiKhoanGiaoVien tk = new TaiKhoanGiaoVien(txtMaGV.Text, hashPassword, txtEmail.Text);
             tk.Id = new ObjectId(dgvCoTK.CurrentRow.Cells[0].Value.ToString());
 
             var update = Builders<TaiKhoanGiaoVien>.Update
@@ -131,53 +185,61 @@ namespace QLHOCSINHCAP3.UI {
             if (e.RowIndex >= 0 && dgvCoTK.Rows.Count > 0) {
                 int index = e.RowIndex;
                 // Kiểm tra xem chỉ số cột có hợp lệ
-                if (index < dgvCoTK.Rows[index].Cells.Count) {
-                    txtMaHS.Text = dgvCoTK.Rows[index].Cells[1].Value.ToString();
-                    txtMatKhau.Text = dgvCoTK.Rows[index].Cells[2].Value.ToString();
+            
+                    txtMaGV.Text = dgvCoTK.Rows[index].Cells[1].Value.ToString();
+
                     txtEmail.Text = dgvCoTK.Rows[index].Cells[3].Value.ToString();
-                }
+     
             }
         }
-        private void cbbTimLop_SelectedIndexChanged(object sender, EventArgs e) {
-            //string selectedLop = cbbTimLop.Text;
-            //var data = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
-            //var filteredData = collectionGiaoVien.Find(new BsonDocument()).ToList();
-            //if (cbbTimLop.Text != "Tất Cả") {
-            //    var filter = Builders<GiaoVien>.Filter.Eq(x => x.Lop, selectedLop);
-            //    filteredData = collectionGiaoVien.Find(filter).ToList();
-            //}
-            
-            //var filteredData2 = filteredData.Where(item2 => !data.Any(item1 => item1.MSHS == item2.MSHS)).ToList();
-            //dgvChuaTK.DataSource = filteredData2;
-
-
-        }
-
-        private void txtTimMa_TextChanged(object sender, EventArgs e) {
-            //string selectedMa = txtTimMa.Text;
-
-            //var filteredData = collectionGiaoVien.Find(new BsonDocument()).ToList();
-            //var filteredDataMa = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
-            //if (txtTimMa.Text != "") {
-            //    var filter = Builders<GiaoVien>.Filter.Eq(x => x.MaGV, selectedMa);
-            //    var filterma = Builders<TaiKhoanGiaoVien>.Filter.Eq(x => x.MaGV, selectedMa);
-
-            //    filteredData = collectionGiaoVien.Find(filter).ToList();
-            //    filteredDataMa = collectionTaiKhoanGiaoVien.Find(filterma).ToList();
-            //}
-            //var filteredData2 = filteredData.Where(item2 => !filteredDataMa.Any(item1 => item1.MaGV == item2.MaGV)).ToList();
-            //dgvChuaTK.DataSource = filteredData2;
-            //dgvCoTK.DataSource = filteredDataMa;
-        }
-
         private void dgvChuaTK_CellClick(object sender, DataGridViewCellEventArgs e) {
             if (e.RowIndex >= 0 && dgvChuaTK.Rows.Count > 0) {
                 int index = e.RowIndex;
-                // Kiểm tra xem chỉ số cột có hợp lệ
-                if (index < dgvChuaTK.Rows[index].Cells.Count) {
-                    txtMaHS.Text = dgvChuaTK.Rows[index].Cells[1].Value.ToString();
-                }
+
+
+                txtMaGV.Text = dgvChuaTK.Rows[index].Cells[1].Value.ToString();
+
             }
+        }
+
+        private void txtTimMa_TextChanged(object sender, EventArgs e) {
+            string selectedMa = txtTimMa.Text;
+
+            var filteredData = collectionGiaoVien.Find(new BsonDocument()).ToList();
+            var filteredDataMa = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
+            if (txtTimMa.Text != "") {
+                var filter = Builders<GiaoVien>.Filter.Eq(x => x.MaGV, selectedMa);
+                var filterma = Builders<TaiKhoanGiaoVien>.Filter.Eq(x => x.MaGV, selectedMa);
+
+                filteredData = collectionGiaoVien.Find(filter).ToList();
+                filteredDataMa = collectionTaiKhoanGiaoVien.Find(filterma).ToList();
+            }
+            var filteredData2 = filteredData.Where(item2 => !filteredDataMa.Any(item1 => item1.MaGV == item2.MaGV)).ToList();
+            dgvChuaTK.DataSource = filteredData2;
+            dgvCoTK.DataSource = filteredDataMa;
+        }
+
+        
+
+        private void cbbTimMon_SelectedIndexChanged(object sender, EventArgs e) {
+            string selectedMon = cbbTimMon.Text;
+            var data = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
+            var filteredData = collectionGiaoVien.Find(new BsonDocument()).ToList();
+            if (cbbTimMon.Text != "Tất Cả") {
+                var filter = Builders<GiaoVien>.Filter.Eq(x => x.MonDay, selectedMon);
+                filteredData = collectionGiaoVien.Find(filter).ToList();
+            }
+
+            var filteredData2 = filteredData.Where(item2 => !data.Any(item1 => item1.MaGV == item2.MaGV)).ToList();
+            dgvChuaTK.DataSource = filteredData2;
+        }
+
+        private void uc_QuanLyTaiKhoanGiaoVien_Load(object sender, EventArgs e) {
+            db = client.GetDatabase("QLHocSinhCap3");
+            collectionTaiKhoanGiaoVien = db.GetCollection<TaiKhoanGiaoVien>("TaiKhoanGiaoVien");
+            collectionMonHoc = db.GetCollection<MonHoc>("MonHoc");
+            collectionGiaoVien = db.GetCollection<GiaoVien>("GiaoVien");
+            readData();
         }
     }
 }

@@ -50,8 +50,7 @@ namespace QLHOCSINHCAP3.UI {
             dgvQLGV.Columns["DiaChi"].Width = 150;
             dgvQLGV.Columns["SDT"].HeaderText = "Số Điện Thoại";
             dgvQLGV.Columns["SDT"].Width = 150;
-            dgvQLGV.Columns["Email"].HeaderText = "Email";
-            dgvQLGV.Columns["Email"].Width = 150;
+
 
 
         }
@@ -73,7 +72,7 @@ namespace QLHOCSINHCAP3.UI {
             txtHoTen.Clear();
             txtDiaChi.Clear();
             txtSdt.Clear();
-            txtEmail.Clear();
+
 
             cbbGioiTinh.SelectedIndex = 0;
             cbbMonDay.SelectedIndex = 0;
@@ -104,10 +103,7 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng nhập SDT.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (string.IsNullOrEmpty(txtEmail.Text)) {
-                MessageBox.Show("Vui lòng nhập Email.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+
             if (cbbMonDay.Text == "Chưa Chọn Môn") {
                 MessageBox.Show("Vui lòng chọn môn dạy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -115,7 +111,7 @@ namespace QLHOCSINHCAP3.UI {
 
 
 
-            GiaoVien gv = new GiaoVien(txtMa.Text, txtHoTen.Text, dtpNgaySinh.Text, cbbGioiTinh.Text, cbbMonDay.Text,txtDiaChi.Text, txtSdt.Text, txtEmail.Text);
+            GiaoVien gv = new GiaoVien(txtMa.Text, txtHoTen.Text, dtpNgaySinh.Text, cbbGioiTinh.Text, cbbMonDay.Text,txtDiaChi.Text, txtSdt.Text);
 
             collectionGiaoVien.InsertOne(gv);
 
@@ -143,7 +139,7 @@ namespace QLHOCSINHCAP3.UI {
                 return;
             }
             // Kiểm tra trùng mã gv
-            var maGVFilter = Builders<GiaoVien>.Filter.Eq("MaLop", txtMa.Text);
+            var maGVFilter = Builders<GiaoVien>.Filter.Eq("MaGV", txtMa.Text);
             var MaGVHienTai = dgvQLGV.CurrentRow.Cells[1].Value.ToString();
             if (collectionGiaoVien.Find(maGVFilter & Builders<GiaoVien>.Filter.Ne("MaGV", MaGVHienTai)).Any()) {
                 MessageBox.Show("Mã lớp đã tồn tại. Vui lòng chọn mã lớp khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,16 +157,13 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng nhập SDT.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (string.IsNullOrEmpty(txtEmail.Text)) {
-                MessageBox.Show("Vui lòng nhập Email.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+
             if (cbbMonDay.Text == "Chưa Chọn Môn") {
                 MessageBox.Show("Vui lòng chọn môn dạy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            GiaoVien gv = new GiaoVien(txtMa.Text, txtHoTen.Text, dtpNgaySinh.Text, cbbGioiTinh.Text, cbbMonDay.Text, txtDiaChi.Text, txtSdt.Text,txtEmail.Text);
+            GiaoVien gv = new GiaoVien(txtMa.Text, txtHoTen.Text, dtpNgaySinh.Text, cbbGioiTinh.Text, cbbMonDay.Text, txtDiaChi.Text, txtSdt.Text);
             gv.Id = new ObjectId(dgvQLGV.CurrentRow.Cells[0].Value.ToString());
 
             var update = Builders<GiaoVien>.Update
@@ -180,8 +173,7 @@ namespace QLHOCSINHCAP3.UI {
                 .Set(s => s.GioiTinh, gv.GioiTinh)
                 .Set(s => s.MonDay, gv.MonDay)
                 .Set(s => s.DiaChi, gv.DiaChi)
-                .Set(s => s.SDT, gv.SDT)
-                .Set(s => s.Email, gv.Email);
+                .Set(s => s.SDT, gv.SDT);
              
         
 
@@ -202,7 +194,7 @@ namespace QLHOCSINHCAP3.UI {
                     cbbGioiTinh.Text = dgvQLGV.Rows[index].Cells[4].Value?.ToString();
                     txtDiaChi.Text = dgvQLGV.Rows[index].Cells[6].Value?.ToString();
                     txtSdt.Text = dgvQLGV.Rows[index].Cells[7].Value?.ToString();
-                    txtEmail.Text = dgvQLGV.Rows[index].Cells[8].Value?.ToString();
+                  
                 }            
         }
 

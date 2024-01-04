@@ -33,6 +33,9 @@ namespace QLHOCSINHCAP3 {
             db = client.GetDatabase("QLHocSinhCap3");
             collectionTaiKhoanHocSinh = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
             collectionHocSinh = db.GetCollection<HocSinh>("HocSinh");
+
+            collectionTaiKhoanGiaoVien = db.GetCollection<TaiKhoanGiaoVien>("TaiKhoanGiaoVien");
+            collectionGiaoVien = db.GetCollection<GiaoVien>("GiaoVien");
         }
         private string MaXacNhan() {
             Random random = new Random();
@@ -42,6 +45,7 @@ namespace QLHOCSINHCAP3 {
         private void frmDangKy_Load(object sender, EventArgs e) {
             cbbLoaiTaiKhoan.SelectedIndex = 0;
         }
+
         public static string HashPassword(string password) {
             using (SHA256 sha256 = SHA256.Create()) {
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -53,7 +57,6 @@ namespace QLHOCSINHCAP3 {
                 return builder.ToString();
             }
         }
-
         public static bool VerifyPassword(string enteredPassword, string storedHashedPassword) {
             string hashedEnteredPassword = HashPassword(enteredPassword);
             return string.Equals(hashedEnteredPassword, storedHashedPassword, StringComparison.OrdinalIgnoreCase);
@@ -123,14 +126,14 @@ namespace QLHOCSINHCAP3 {
                 //kiểm tra email được đăng ký chưa trong cơ sở dữ liệu
                 bool emailExists = false;
 
-                if (loaitk == "Giảng Viên") {
+                if (loaitk == "Giáo Viên") {
                     var dulieuTKGV = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
                     emailExists = dulieuTKGV.Any(gv => gv.Email == email);
-                } else if (loaitk == "Sinh Viên") {
+                } else if (loaitk == "Học Sinh") {
                     var dulieuTKHS = collectionTaiKhoanHocSinh.Find(new BsonDocument()).ToList();
                     emailExists = dulieuTKHS.Any(sv => sv.Email == email);
                 } else {
-                    MessageBox.Show("Vui long chọn loại tài khoản  vui lòng đăng nhập", "Thông báo");
+                    MessageBox.Show("Vui lòng chọn loại tài khoản ", "Thông báo");
                     return;
                 }
                 if (emailExists) {
@@ -145,7 +148,7 @@ namespace QLHOCSINHCAP3 {
 
                     collectionTaiKhoanGiaoVien.InsertOne(tk);
                     MessageBox.Show("Đăng ký thành công! Giáo viên", "Thông báo");
-                } else if (loaitk == "Sinh Viên") {
+                } else if (loaitk == "Học Sinh") {
 
                     TaiKhoanHocSinh tk = new TaiKhoanHocSinh(tentk, hashPassword, email);
 
@@ -176,13 +179,13 @@ namespace QLHOCSINHCAP3 {
             bool emailExists = false;
 
             if (loaitk == "Giáo Viên") {
-                //var dulieuTKGV = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
-                //emailExists = dulieuTKGV.Any(gv => gv.Email == email);
-                MessageBox.Show("Thanh Conmg");
+                var dulieuTKGV = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
+                emailExists = dulieuTKGV.Any(gv => gv.Email == email);
+                MessageBox.Show("Đang Gửi");
             } else if (loaitk == "Học Sinh") {
                 var dulieuTKHS = collectionTaiKhoanHocSinh.Find(new BsonDocument()).ToList();
                 emailExists = dulieuTKHS.Any(sv => sv.Email == email);
-                MessageBox.Show("Thanh Conmg");
+                MessageBox.Show("Đang Gửi");
             } else {
                 MessageBox.Show("Vui lòng chọn loại tài khoản", "Thông báo");
                 return;
@@ -198,7 +201,7 @@ namespace QLHOCSINHCAP3 {
             //soạn tin nhắn để gửi
             MailMessage message = new MailMessage();
             message.To.Add(email);
-            message.From = new MailAddress(from);
+            message.From = new MailAddress(from,"Đăng Ký Tài Khoản");      
             message.Body = verification_code;
             message.Subject = "Mã xác nhận của bạn";
 

@@ -27,11 +27,10 @@ namespace QLHOCSINHCAP3.Thuvien {
         [BsonElement("SDT")]
         public string SDT { get; set; }
 
-        [BsonElement("Email")]
-        public string Email { get; set; }
 
 
-        public GiaoVien(string magv, string hoten, string ngaysinh,string gioitinh, string monday, string diachi, string sdt, string email) {
+
+        public GiaoVien(string magv, string hoten, string ngaysinh,string gioitinh, string monday, string diachi, string sdt) {
             MaGV = magv;
             HoTen = hoten;
             NgaySinh = ngaysinh;
@@ -39,7 +38,7 @@ namespace QLHOCSINHCAP3.Thuvien {
             GioiTinh = gioitinh;           
             DiaChi = diachi;
             SDT = sdt;
-            Email = email;        
+      
 
         }
     }

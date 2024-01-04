@@ -168,14 +168,27 @@
     <Compile Include="frmGiaoVien.Designer.cs">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.Designer.cs">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thuvien\BuoiHoc.cs" />
     <Compile Include="Thuvien\GiaoVien.cs" />
+    <Compile Include="Thuvien\LopHoc.cs" />
     <Compile Include="Thuvien\MonHoc.cs" />
     <Compile Include="Thuvien\TaiKhoanGiaoVien.cs" />
     <Compile Include="Thuvien\TaiKhoanHocSinh.cs" />
-    <Compile Include="Thuvien\LopHoc.cs" />
     <Compile Include="Thuvien\HocSinh.cs" />
+    <Compile Include="UI\uc_BuoiHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_BuoiHoc.Designer.cs">
+      <DependentUpon>uc_BuoiHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_DoiMatKhau.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,11 +243,11 @@
     <Compile Include="UI\uc_ThoiKhoaBieu.Designer.cs">
       <DependentUpon>uc_ThoiKhoaBieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\uc_ThongTinCaNhan.cs">
+    <Compile Include="UI\uc_ThongTinCaNhanGV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\uc_ThongTinCaNhan.Designer.cs">
-      <DependentUpon>uc_ThongTinCaNhan.cs</DependentUpon>
+    <Compile Include="UI\uc_ThongTinCaNhanGV.Designer.cs">
+      <DependentUpon>uc_ThongTinCaNhanGV.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_TrangChu.cs">
       <SubType>UserControl</SubType>
@@ -263,6 +276,9 @@
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmQuenMatKhau.resx">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -273,6 +289,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\uc_BuoiHoc.resx">
+      <DependentUpon>uc_BuoiHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_DoiMatKhau.resx">
       <DependentUpon>uc_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,8 +319,8 @@
     <EmbeddedResource Include="UI\uc_ThoiKhoaBieu.resx">
       <DependentUpon>uc_ThoiKhoaBieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\uc_ThongTinCaNhan.resx">
-      <DependentUpon>uc_ThongTinCaNhan.cs</DependentUpon>
+    <EmbeddedResource Include="UI\uc_ThongTinCaNhanGV.resx">
+      <DependentUpon>uc_ThongTinCaNhanGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_TrangChu.resx">
       <DependentUpon>uc_TrangChu.cs</DependentUpon>

@@ -31,12 +31,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.txtMaHS = new System.Windows.Forms.TextBox();
+            this.txtMaGV = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbbTimLop = new System.Windows.Forms.ComboBox();
+            this.cbbTimMon = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTimMa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -91,9 +91,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(439, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 24);
+            this.label1.Size = new System.Drawing.Size(263, 24);
             this.label1.TabIndex = 56;
-            this.label1.Text = "Học Sinh Chưa Có Tài Khoản";
+            this.label1.Text = "Giáo Viên Chưa Có Tài Khoản";
             // 
             // label4
             // 
@@ -101,9 +101,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(62, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 24);
+            this.label4.Size = new System.Drawing.Size(124, 24);
             this.label4.TabIndex = 57;
-            this.label4.Text = "Mã Học Sinh";
+            this.label4.Text = "Mã Giáo Viên";
             // 
             // label2
             // 
@@ -131,13 +131,13 @@
             this.txtMatKhau.Size = new System.Drawing.Size(186, 35);
             this.txtMatKhau.TabIndex = 53;
             // 
-            // txtMaHS
+            // txtMaGV
             // 
-            this.txtMaHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHS.Location = new System.Drawing.Point(213, 49);
-            this.txtMaHS.Name = "txtMaHS";
-            this.txtMaHS.Size = new System.Drawing.Size(186, 35);
-            this.txtMaHS.TabIndex = 54;
+            this.txtMaGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaGV.Location = new System.Drawing.Point(213, 49);
+            this.txtMaGV.Name = "txtMaGV";
+            this.txtMaGV.Size = new System.Drawing.Size(186, 35);
+            this.txtMaGV.TabIndex = 54;
             // 
             // btnXoa
             // 
@@ -179,22 +179,22 @@
             this.label5.Location = new System.Drawing.Point(539, 112);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 24);
+            this.label5.Size = new System.Drawing.Size(183, 24);
             this.label5.TabIndex = 64;
-            this.label5.Text = "Tìm Kiếm Theo Lớp";
+            this.label5.Text = "Tìm Kiếm Theo Môn";
             // 
-            // cbbTimLop
+            // cbbTimMon
             // 
-            this.cbbTimLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTimLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTimLop.FormattingEnabled = true;
-            this.cbbTimLop.Items.AddRange(new object[] {
+            this.cbbTimMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTimMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTimMon.FormattingEnabled = true;
+            this.cbbTimMon.Items.AddRange(new object[] {
             "Tất Cả"});
-            this.cbbTimLop.Location = new System.Drawing.Point(773, 112);
-            this.cbbTimLop.Name = "cbbTimLop";
-            this.cbbTimLop.Size = new System.Drawing.Size(131, 32);
-            this.cbbTimLop.TabIndex = 65;
-            this.cbbTimLop.SelectedIndexChanged += new System.EventHandler(this.cbbTimLop_SelectedIndexChanged);
+            this.cbbTimMon.Location = new System.Drawing.Point(773, 112);
+            this.cbbTimMon.Name = "cbbTimMon";
+            this.cbbTimMon.Size = new System.Drawing.Size(131, 32);
+            this.cbbTimMon.TabIndex = 65;
+            this.cbbTimMon.SelectedIndexChanged += new System.EventHandler(this.cbbTimMon_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -203,9 +203,9 @@
             this.label7.Location = new System.Drawing.Point(539, 60);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(254, 24);
+            this.label7.Size = new System.Drawing.Size(259, 24);
             this.label7.TabIndex = 64;
-            this.label7.Text = "Tìm Kiếm Theo Mã Học Sinh";
+            this.label7.Text = "Tìm Kiếm Theo Mã Giáo Viên";
             // 
             // txtTimMa
             // 
@@ -222,9 +222,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(61, 202);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(213, 24);
+            this.label6.Size = new System.Drawing.Size(218, 24);
             this.label6.TabIndex = 56;
-            this.label6.Text = "Học Sinh  Có Tài Khoản";
+            this.label6.Text = "Giáo Viên  Có Tài Khoản";
             // 
             // uc_QuanLyTaiKhoanGiaoVien
             // 
@@ -232,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cbbTimLop);
+            this.Controls.Add(this.cbbTimMon);
             this.Controls.Add(this.dgvChuaTK);
             this.Controls.Add(this.dgvCoTK);
             this.Controls.Add(this.label3);
@@ -243,12 +243,13 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTimMa);
-            this.Controls.Add(this.txtMaHS);
+            this.Controls.Add(this.txtMaGV);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Name = "uc_QuanLyTaiKhoanGiaoVien";
             this.Size = new System.Drawing.Size(917, 629);
+            this.Load += new System.EventHandler(this.uc_QuanLyTaiKhoanGiaoVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChuaTK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoTK)).EndInit();
             this.ResumeLayout(false);
@@ -266,12 +267,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMatKhau;
-        private System.Windows.Forms.TextBox txtMaHS;
+        private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbbTimLop;
+        private System.Windows.Forms.ComboBox cbbTimMon;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTimMa;
         private System.Windows.Forms.Label label6;

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QLHOCSINHCAP3.Thuvien;
 using QLHOCSINHCAP3.UI;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,18 @@ using System.Windows.Forms;
 
 namespace QLHOCSINHCAP3 {
     public partial class frmGiaoVien : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm {
-        public frmGiaoVien() {
+        private string maGiaoVien;
+        public frmGiaoVien(string maGiaoVien) {
             InitializeComponent();
-            
+            this.maGiaoVien = maGiaoVien;
+
+
         }
         uc_TrangChu ucTrangChu;
         uc_ThoiKhoaBieu ucThoiKhoaBieu;
         uc_LopDay ucLopDay;
         uc_DoiMatKhau ucDoiMatKhau;
-        uc_ThongTinCaNhan ucThongTinCaNhan;
+        uc_ThongTinCaNhanGV ucThongTinCaNhan;
         private void mnTrangChu_Click(object sender, EventArgs e) {
 
             if (ucTrangChu == null) { 
@@ -36,7 +40,7 @@ namespace QLHOCSINHCAP3 {
 
         private void mnThongTinCaNhan_Click(object sender, EventArgs e) {
             if (ucThongTinCaNhan == null) {
-                ucThongTinCaNhan = new uc_ThongTinCaNhan();
+                ucThongTinCaNhan = new uc_ThongTinCaNhanGV(maGiaoVien);
                 ucThongTinCaNhan.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucThongTinCaNhan);
                 ucThongTinCaNhan.BringToFront();
@@ -72,7 +76,7 @@ namespace QLHOCSINHCAP3 {
 
         private void mnDoiMatKhau_Click(object sender, EventArgs e) {
             if (ucDoiMatKhau == null) {
-                ucDoiMatKhau = new uc_DoiMatKhau();
+                ucDoiMatKhau = new uc_DoiMatKhau(maGiaoVien);
                 ucDoiMatKhau.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucDoiMatKhau);
                 ucDoiMatKhau.BringToFront();

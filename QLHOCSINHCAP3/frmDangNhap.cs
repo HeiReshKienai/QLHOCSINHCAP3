@@ -45,13 +45,17 @@ namespace QLHOCSINHCAP3 {
             string hashedEnteredPassword = HashPassword(enteredPassword);
             return string.Equals(hashedEnteredPassword, storedHashedPassword, StringComparison.OrdinalIgnoreCase);
         }
-
+        public void xoathongtin() {
+            txtTaiKhoan.Text = "";
+            txtMatKhau.Text = "";
+            cbbLoaiTaiKhoan.SelectedIndex = 0;
+        }
         private void btnDangNhap_Click(object sender, EventArgs e) {
             string tentk = txtTaiKhoan.Text;
             string matkhau = txtMatKhau.Text;
             string hashPassword = HashPassword(matkhau);
             string loaitk = cbbLoaiTaiKhoan.SelectedItem.ToString();
-
+            
 
 
 
@@ -68,10 +72,14 @@ namespace QLHOCSINHCAP3 {
                 return;
             }
             if (tentk == "admin" && matkhau == "admin") {
+                MessageBox.Show("Đăng nhập thành công Quản Lý!");
+                xoathongtin();
+                
                 frmQuanLy adminForm = new frmQuanLy();
                 this.Hide();
                 adminForm.ShowDialog();
                 this.Show();
+                
                 return;
             }
 
@@ -84,27 +92,36 @@ namespace QLHOCSINHCAP3 {
 
                 var account = collectionTaiKhoanGiaoVien.Find(a => a.MaGV == tentk && a.MatKhau == hashPassword).ToList();
                 if (account.Count > 0) {
-                    var maHocSinh = tentk;
-                    MessageBox.Show("Đăng nhập thành công!");
-                    frmGiaoVien giaovienfrm = new frmGiaoVien();
+                    var maGiaoVien = tentk;
+                    MessageBox.Show("Đăng nhập thành công Giáo Viên!");
+                    xoathongtin();
+                    
+                    frmGiaoVien giaovienfrm = new frmGiaoVien(maGiaoVien);                
                     this.Hide();
                     giaovienfrm.ShowDialog();
                     this.Show();
+                    
                     return;
                 }
             }
-            if (loaitk == "Học Sinh"){
+            if (loaitk == "Học Sinh") {
 
                 var account = collectionTaiKhoanHocSinh.Find(a => a.MSHS == tentk && a.MatKhau == hashPassword).ToList();
-                if (account.Count >0) {
+                if (account.Count > 0) {
                     var maHocSinh = tentk;
-                    MessageBox.Show("Đăng nhập thành công!");
-                    frmGiaoVien giaovienfrm = new frmGiaoVien();
+                    MessageBox.Show("Đăng nhập thành công Học Sinh!");
+                    xoathongtin();
+
+                    frmHocSinh hocsinh = new frmHocSinh(maHocSinh);
                     this.Hide();
-                    giaovienfrm.ShowDialog();
+                    hocsinh.ShowDialog();
                     this.Show();
+
                     return;
                 }
+            } else {
+                MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
+
             }
 
         }
@@ -120,5 +137,13 @@ namespace QLHOCSINHCAP3 {
             dangKy.ShowDialog();
             this.Show();
         }
+
+        private void llbQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            frmQuenMatKhau quenMatKhau = new frmQuenMatKhau();
+            this.Hide();
+             quenMatKhau.ShowDialog();
+            this.Show();
+        }
     }
+    
 }

@@ -32,11 +32,13 @@
             this.mnThongTinCaNhan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.mnQuanLyHocSinh = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyGiaoVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyLopHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyTaiKhoanHS = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyTaiKhoanGV = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQuanLyMonHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQuanLyHocSinh = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQuanLyBuoiHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator5 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
@@ -45,7 +47,6 @@
             this.lblTieuDe = new DevExpress.XtraBars.BarStaticItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.mnQuanLyMonHoc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -111,8 +112,7 @@
             this.mnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnThongTinCaNhan.ImageOptions.Image")));
             this.mnThongTinCaNhan.Name = "mnThongTinCaNhan";
             this.mnThongTinCaNhan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnThongTinCaNhan.Text = "THÔNG TIN CÁ NHÂN";
-            this.mnThongTinCaNhan.Click += new System.EventHandler(this.mnThongTinCaNhan_Click);
+            this.mnThongTinCaNhan.Text = "TRANG CHỦ";
             // 
             // accordionControlSeparator4
             // 
@@ -121,26 +121,17 @@
             // accordionControlElement2
             // 
             this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.mnQuanLyHocSinh,
             this.mnQuanLyGiaoVien,
             this.mnQuanLyLopHoc,
             this.mnQuanLyTaiKhoanHS,
             this.mnQuanLyTaiKhoanGV,
-            this.mnQuanLyMonHoc});
+            this.mnQuanLyMonHoc,
+            this.mnQuanLyHocSinh,
+            this.mnQuanLyBuoiHoc});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement2.ImageOptions.Image")));
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "QUẢN LÝ";
-            // 
-            // mnQuanLyHocSinh
-            // 
-            this.mnQuanLyHocSinh.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mnQuanLyHocSinh.Appearance.Default.Options.UseFont = true;
-            this.mnQuanLyHocSinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnQuanLyHocSinh.ImageOptions.Image")));
-            this.mnQuanLyHocSinh.Name = "mnQuanLyHocSinh";
-            this.mnQuanLyHocSinh.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnQuanLyHocSinh.Text = "Quản Lý Học Sinh";
-            this.mnQuanLyHocSinh.Click += new System.EventHandler(this.mnQuanLyHocSinh_Click);
             // 
             // mnQuanLyGiaoVien
             // 
@@ -169,6 +160,27 @@
             this.mnQuanLyTaiKhoanGV.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.mnQuanLyTaiKhoanGV.Text = "Quản Lý Tài Khoản Giáo Viên";
             this.mnQuanLyTaiKhoanGV.Click += new System.EventHandler(this.mnQuanLyTaiKhoanGV_Click);
+            // 
+            // mnQuanLyMonHoc
+            // 
+            this.mnQuanLyMonHoc.Name = "mnQuanLyMonHoc";
+            this.mnQuanLyMonHoc.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQuanLyMonHoc.Text = "Quản Lý Môn Học";
+            this.mnQuanLyMonHoc.Click += new System.EventHandler(this.mnQuanLyMonHoc_Click);
+            // 
+            // mnQuanLyHocSinh
+            // 
+            this.mnQuanLyHocSinh.Name = "mnQuanLyHocSinh";
+            this.mnQuanLyHocSinh.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQuanLyHocSinh.Text = "Quản Lý Học Sinh";
+            this.mnQuanLyHocSinh.Click += new System.EventHandler(this.mnQuanLyHocSinh_Click);
+            // 
+            // mnQuanLyBuoiHoc
+            // 
+            this.mnQuanLyBuoiHoc.Name = "mnQuanLyBuoiHoc";
+            this.mnQuanLyBuoiHoc.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQuanLyBuoiHoc.Text = "Quản Lý Buổi Học";
+            this.mnQuanLyBuoiHoc.Click += new System.EventHandler(this.mnQuanLyBuoiHoc_Click);
             // 
             // accordionControlSeparator5
             // 
@@ -239,13 +251,6 @@
             this.skinPaletteDropDownButtonItem1});
             this.fluentFormDefaultManager1.MaxItemId = 2;
             // 
-            // mnQuanLyMonHoc
-            // 
-            this.mnQuanLyMonHoc.Name = "mnQuanLyMonHoc";
-            this.mnQuanLyMonHoc.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnQuanLyMonHoc.Text = "Quản Lý Môn Học";
-            this.mnQuanLyMonHoc.Click += new System.EventHandler(this.mnQuanLyMonHoc_Click);
-            // 
             // frmQuanLy
             // 
             this.Appearance.Options.UseFont = true;
@@ -288,11 +293,12 @@
         private DevExpress.XtraBars.BarStaticItem lblTieuDe;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyLopHoc;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyHocSinh;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyTaiKhoanHS;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyTaiKhoanGV;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyGiaoVien;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyMonHoc;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyHocSinh;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQuanLyBuoiHoc;
     }
 }

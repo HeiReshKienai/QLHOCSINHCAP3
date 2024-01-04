@@ -128,7 +128,7 @@ namespace QLHOCSINHCAP3.UI {
             }
 
 
-            
+
 
             LopHoc lh = new LopHoc(txtMaLop.Text, cbbKhoi.Text, cbbGVCN.Text);
             lh.Id = new ObjectId(dgvQLLop.CurrentRow.Cells[0].Value.ToString());
@@ -162,6 +162,14 @@ namespace QLHOCSINHCAP3.UI {
                  filteredData = collectionLopHoc.Find(filter).ToList();
             }
             dgvQLLop.DataSource = filteredData;
+        }
+
+        private void uc_QuanLyLopHoc_Load(object sender, EventArgs e) {
+            db = client.GetDatabase("QLHocSinhCap3");
+            collectionLopHoc = db.GetCollection<LopHoc>("LopHoc");
+            collectionGiaoVien = db.GetCollection<GiaoVien>("GiaoVien");
+            readData();
+            ClearTextBoxes();
         }
     }
 }

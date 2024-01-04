@@ -30,12 +30,10 @@
             this.lblGioitinh = new System.Windows.Forms.Label();
             this.cbbMonDay = new System.Windows.Forms.ComboBox();
             this.txtMa = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtSdt = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lblDiachi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblHoten = new System.Windows.Forms.Label();
@@ -59,12 +57,10 @@
             this.groupBox1.Controls.Add(this.lblGioitinh);
             this.groupBox1.Controls.Add(this.cbbMonDay);
             this.groupBox1.Controls.Add(this.txtMa);
-            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtDiaChi);
             this.groupBox1.Controls.Add(this.txtSdt);
             this.groupBox1.Controls.Add(this.txtHoTen);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblDiachi);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblHoten);
@@ -142,15 +138,6 @@
             this.txtMa.Size = new System.Drawing.Size(142, 29);
             this.txtMa.TabIndex = 2;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(471, 172);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(142, 29);
-            this.txtEmail.TabIndex = 2;
-            // 
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,17 +175,6 @@
             this.label8.Size = new System.Drawing.Size(86, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "Giới Tính";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(337, 170);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Email";
             // 
             // lblDiachi
             // 
@@ -368,11 +344,9 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView dgvQLGV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.ComboBox cbbGioiTinh;

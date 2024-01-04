@@ -249,6 +249,7 @@
             this.Controls.Add(this.btnThem);
             this.Name = "uc_QuanLyTaiKhoanHocSinh";
             this.Size = new System.Drawing.Size(1191, 629);
+            this.Load += new System.EventHandler(this.uc_QuanLyTaiKhoanHocSinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChuaTK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoTK)).EndInit();
             this.ResumeLayout(false);

@@ -21,40 +21,65 @@ namespace QLHOCSINHCAP3.UI {
         private IMongoCollection<LopHoc> collectionLopHoc;
         private IMongoCollection<HocSinh> collectionHocSinh;
 
+
         private void readData() {
-            var data = collectionTaiKhoanHocSinh.Find(new BsonDocument()).ToList();
-            var data2 = collectionHocSinh.Find(new BsonDocument()).ToList();
+            var dataTaiKhoanHocSinh = collectionTaiKhoanHocSinh.Find(new BsonDocument()).ToList();
+            var dataHocSinh = collectionHocSinh.Find(new BsonDocument()).ToList();
 
-            var filteredData2 = data2.Where(item2 => !data.Any(item1 => item1.MSHS == item2.MSHS)).ToList();
+            var LocChuaTK = dataHocSinh.Where(item2 => !dataTaiKhoanHocSinh.Any(item1 => item1.MSHS == item2.MSHS)).ToList();
 
-            dgvCoTK.DataSource = data;
-            dgvChuaTK.DataSource = filteredData2;
+            dgvCoTK.DataSource = dataTaiKhoanHocSinh;
+            dgvChuaTK.DataSource = LocChuaTK;
 
 
 
-            var data1 = collectionLopHoc.Distinct<string>("MaLop", new BsonDocument()).ToList();
-            var tempData = new List<string>(data1);
+            var dataLopHoc = collectionLopHoc.Distinct<string>("MaLop", new BsonDocument()).ToList();
+            var tempData = new List<string>(dataLopHoc);
             tempData.Insert(0, "Tất Cả");
 
             cbbTimLop.DataSource = tempData;
 
+            dgvCoTK.Columns["Id"].Visible = false;
+            dgvCoTK.Columns["MSHS"].HeaderText = "Mã Học Sinh";
+            dgvCoTK.Columns["MSHS"].Width = 150;
+            dgvCoTK.Columns["MatKhau"].HeaderText = "Mật Khẩu";
+            dgvCoTK.Columns["MatKhau"].Width = 150;
 
-            //dgvQLLop.Columns["Khoi"].HeaderText = "Khối";
-            //dgvQLLop.Columns["Khoi"].Width = 150;
-            //dgvQLLop.Columns["MaLop"].HeaderText = "Mã Lớp";
-            //dgvQLLop.Columns["MaLop"].Width = 150;
-            //dgvQLLop.Columns["SiSo"].HeaderText = "Sĩ Số";
-            //dgvQLLop.Columns["SiSo"].Width = 150;
-            //dgvQLLop.Columns["GVCN"].HeaderText = "Giáo Viên Chủ Nhiệm";
-            //dgvQLLop.Columns["GVCN"].Width = 150;
+            dgvCoTK.Columns["Email"].Width = 200;
+
+
+
+            dgvChuaTK.Columns["Id"].Visible = false;
+            dgvChuaTK.Columns["MSHS"].HeaderText = "Mã Học Sinh";
+            dgvChuaTK.Columns["MSHS"].Width = 150;
+            dgvChuaTK.Columns["HoTen"].HeaderText = "Họ Tên";
+            dgvChuaTK.Columns["HoTen"].Width = 150;
+            dgvChuaTK.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+            dgvChuaTK.Columns["NgaySinh"].Width = 150;
+            dgvChuaTK.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dgvChuaTK.Columns["GioiTinh"].Width = 75;
+            dgvChuaTK.Columns["Lop"].HeaderText = "Lớp";
+            dgvChuaTK.Columns["Lop"].Width = 150;
+            dgvChuaTK.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+            dgvChuaTK.Columns["DiaChi"].Width = 150;
+            dgvChuaTK.Columns["SDT"].HeaderText = "Số Điện Thoại";
+            dgvChuaTK.Columns["SDT"].Width = 150;
+
+            dgvChuaTK.Columns["HoTenPhuHuynh"].HeaderText = "Họ Tên Phụ Huynh";
+            dgvChuaTK.Columns["HoTenPhuHuynh"].Width = 150;
+            dgvChuaTK.Columns["NamHoc"].HeaderText = "Năm Học";
+            dgvChuaTK.Columns["NamHoc"].Width = 76;
+
+
         }
         public uc_QuanLyTaiKhoanHocSinh() {
             InitializeComponent();
             db = client.GetDatabase("QLHocSinhCap3");
             collectionTaiKhoanHocSinh = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
             collectionLopHoc = db.GetCollection<LopHoc>("LopHoc");
-            collectionHocSinh = db.GetCollection<HocSinh>("HocSinh");
+            collectionHocSinh = db.GetCollection<HocSinh>("HocSinh");      
             readData();
+            
 
 
         }
@@ -64,7 +89,7 @@ namespace QLHOCSINHCAP3.UI {
 
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++) {
-                    builder.Append(bytes[i].ToString("x2")); // Chuyển đổi byte thành dạng chuỗi hex
+                    builder.Append(bytes[i].ToString("x2")); 
                 }
                 return builder.ToString();
             }
@@ -80,11 +105,35 @@ namespace QLHOCSINHCAP3.UI {
             txtMaHS.Clear();
             txtMatKhau.Clear();
             txtEmail.Clear();
-
+            dgvCoTK.ClearSelection();
+            dgvChuaTK.ClearSelection();
         }
         private void btnThem_Click(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(txtMaHS.Text)) {
+                MessageBox.Show("Vui lòng nhập Mã Học Sinh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var HocSinhFilter = Builders<HocSinh>.Filter.Eq("MSHS", txtMaHS.Text);
+            if (!collectionHocSinh.Find(HocSinhFilter).Any()) {
+                MessageBox.Show("Không tìm thấy học sinh có mã này vui lòng kiểm tra lại mã.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            var TaiKhoanHocSinhFilter = Builders<TaiKhoanHocSinh>.Filter.Eq("MSHS", txtMaHS.Text);
+            if (collectionTaiKhoanHocSinh.Find(TaiKhoanHocSinhFilter).Any()) {
+                MessageBox.Show("Học Sinh có Mã Học Sinh nà đã có tài khoảng. Vui lòng chọn mã Học Sinh khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtMatKhau.Text)) {
+                MessageBox.Show("Vui lòng nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             string matkhau = txtMatKhau.Text;
             string hashPassword = HashPassword(matkhau);
+            if (txtEmail.Text == "") {
+                txtEmail.Text = "Chưa Có Email";
+            }
             TaiKhoanHocSinh tk = new TaiKhoanHocSinh(txtMaHS.Text, hashPassword, txtEmail.Text);
 
             collectionTaiKhoanHocSinh.InsertOne(tk);
@@ -112,8 +161,16 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng chọn một tài Khoản để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            TaiKhoanHocSinh tk = new TaiKhoanHocSinh(txtMaHS.Text, txtMatKhau.Text, txtEmail.Text);
+            if (string.IsNullOrEmpty(txtMatKhau.Text)) {
+                MessageBox.Show("Vui lòng nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string matkhau = txtMatKhau.Text;
+            string hashPassword = HashPassword(matkhau);
+            if (txtEmail.Text == "") {
+                txtEmail.Text = "Chưa Có Email";
+            }
+            TaiKhoanHocSinh tk = new TaiKhoanHocSinh(txtMaHS.Text, hashPassword, txtEmail.Text);
             tk.Id = new ObjectId(dgvCoTK.CurrentRow.Cells[0].Value.ToString());
 
             var update = Builders<TaiKhoanHocSinh>.Update
@@ -133,7 +190,7 @@ namespace QLHOCSINHCAP3.UI {
                 // Kiểm tra xem chỉ số cột có hợp lệ
                 if (index < dgvCoTK.Rows[index].Cells.Count) {
                     txtMaHS.Text = dgvCoTK.Rows[index].Cells[1].Value.ToString();
-                    txtMatKhau.Text = dgvCoTK.Rows[index].Cells[2].Value.ToString();
+
                     txtEmail.Text = dgvCoTK.Rows[index].Cells[3].Value.ToString();
                 }
             }
@@ -173,11 +230,18 @@ namespace QLHOCSINHCAP3.UI {
         private void dgvChuaTK_CellClick(object sender, DataGridViewCellEventArgs e) {
             if (e.RowIndex >= 0 && dgvChuaTK.Rows.Count > 0) {
                 int index = e.RowIndex;
-                // Kiểm tra xem chỉ số cột có hợp lệ
-                if (index < dgvChuaTK.Rows[index].Cells.Count) {
+
                     txtMaHS.Text = dgvChuaTK.Rows[index].Cells[1].Value.ToString();
-                }
+
             }
+        }
+
+        private void uc_QuanLyTaiKhoanHocSinh_Load(object sender, EventArgs e) {
+            db = client.GetDatabase("QLHocSinhCap3");
+            collectionTaiKhoanHocSinh = db.GetCollection<TaiKhoanHocSinh>("TaiKhoanHocSinh");
+            collectionLopHoc = db.GetCollection<LopHoc>("LopHoc");
+            collectionHocSinh = db.GetCollection<HocSinh>("HocSinh");
+            readData();
         }
     }
 }

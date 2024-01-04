@@ -152,6 +152,7 @@
             // 
             // cbbGVCN
             // 
+            this.cbbGVCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGVCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGVCN.FormattingEnabled = true;
             this.cbbGVCN.Items.AddRange(new object[] {
@@ -165,6 +166,7 @@
             // 
             // cbbKhoi
             // 
+            this.cbbKhoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbKhoi.FormattingEnabled = true;
             this.cbbKhoi.Items.AddRange(new object[] {
@@ -339,6 +341,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "uc_QuanLyLopHoc";
             this.Size = new System.Drawing.Size(960, 526);
+            this.Load += new System.EventHandler(this.uc_QuanLyLopHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -95,13 +95,16 @@ namespace QLHOCSINHCAP3 {
                     var maGiaoVien = tentk;
                     MessageBox.Show("Đăng nhập thành công Giáo Viên!");
                     xoathongtin();
-                    
-                    frmGiaoVien giaovienfrm = new frmGiaoVien(maGiaoVien);                
+
+                    frmGiaoVien giaovienfrm = new frmGiaoVien(maGiaoVien, account[0].Id, new ObjectId());
+                    // get id giao vien dang nhap                
                     this.Hide();
                     giaovienfrm.ShowDialog();
                     this.Show();
-                    
+
                     return;
+                } else {
+                    MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
                 }
             }
             if (loaitk == "Học Sinh") {
@@ -112,14 +115,17 @@ namespace QLHOCSINHCAP3 {
                     MessageBox.Show("Đăng nhập thành công Học Sinh!");
                     xoathongtin();
 
-                    frmHocSinh hocsinh = new frmHocSinh(maHocSinh);
+                    frmHocSinh hocsinh = new frmHocSinh(maHocSinh, account[0].Id, new ObjectId());
                     this.Hide();
                     hocsinh.ShowDialog();
                     this.Show();
 
                     return;
+                } else {
+                    MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
                 }
-            } else {
+            } 
+            else {
                 MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
 
             }

@@ -39,6 +39,7 @@
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.mnDoiMatKhau = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnchat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.lblTieuDe = new DevExpress.XtraBars.BarStaticItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
@@ -51,10 +52,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(257, 31);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.mainContainer.Location = new System.Drawing.Point(330, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(6);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(1291, 602);
+            this.mainContainer.Size = new System.Drawing.Size(1218, 594);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
@@ -71,12 +72,13 @@
             this.accordionControlSeparator4,
             this.accordionControlElement6,
             this.accordionControlSeparator5,
-            this.accordionControlElement1});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.accordionControlElement1,
+            this.mnchat});
+            this.accordionControl1.Location = new System.Drawing.Point(0, 39);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(257, 602);
+            this.accordionControl1.Size = new System.Drawing.Size(330, 594);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -120,7 +122,6 @@
             this.accordionControlElement6.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnThoiKhoaBieu,
             this.mnLopDay});
-            this.accordionControlElement6.Expanded = true;
             this.accordionControlElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement6.ImageOptions.Image")));
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Text = "LỚP HỌC";
@@ -151,7 +152,6 @@
             this.accordionControlSeparator1,
             this.mnDoiMatKhau,
             this.mnDangXuat});
-            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "CÀI ĐẶT TÀI KHOẢN";
@@ -181,6 +181,14 @@
             this.mnDangXuat.Text = "Đăng Xuất";
             this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
             // 
+            // mnchat
+            // 
+            this.mnchat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnchat.ImageOptions.Image")));
+            this.mnchat.Name = "mnchat";
+            this.mnchat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnchat.Text = "CHAT";
+            this.mnchat.Click += new System.EventHandler(this.mnchat_Click);
+            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
@@ -191,7 +199,7 @@
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1548, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1548, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieuDe);
@@ -227,7 +235,7 @@
             // frmGiaoVien
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1548, 633);
             this.ControlContainer = this.mainContainer;
@@ -269,5 +277,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator5;
         private DevExpress.XtraBars.BarStaticItem lblTieuDe;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnchat;
     }
 }

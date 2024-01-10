@@ -18,7 +18,7 @@ namespace QLHOCSINHCAP3.Thuvien {
         public string GiaoVien { get; set; }
 
         [BsonElement("Ngay")]
-        public string Ngay { get; set; }
+        public DateTime Ngay { get; set; }
         [BsonElement("Buoi")]
         public string Buoi { get; set; }
         [BsonElement("Tiet")]
@@ -28,7 +28,7 @@ namespace QLHOCSINHCAP3.Thuvien {
 
 
 
-        public BuoiHoc(string malop, string monhoc, string giaovien, string ngay, string buoi, string tiet) {
+        public BuoiHoc(string malop, string monhoc, string giaovien, DateTime ngay, string buoi, string tiet) {
             MaLop = malop;
             MonHoc = monhoc;
             GiaoVien = giaovien;

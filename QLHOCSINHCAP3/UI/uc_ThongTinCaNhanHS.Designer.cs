@@ -1,5 +1,5 @@
 ﻿namespace QLHOCSINHCAP3.UI {
-    partial class uc_ThongTinCaNhanGV {
+    partial class uc_ThongTinCaNhanHS {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -63,7 +63,7 @@
             this.lblMaGiangVien.Name = "lblMaGiangVien";
             this.lblMaGiangVien.Size = new System.Drawing.Size(176, 31);
             this.lblMaGiangVien.TabIndex = 25;
-            this.lblMaGiangVien.Text = "Mã Giáo Viên";
+            this.lblMaGiangVien.Text = "Mã Học Sinh:";
             // 
             // label3
             // 
@@ -83,9 +83,9 @@
             this.label2.Location = new System.Drawing.Point(188, 175);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 31);
+            this.label2.Size = new System.Drawing.Size(229, 39);
             this.label2.TabIndex = 27;
-            this.label2.Text = "Mã Giáo Viên: ";
+            this.label2.Text = "Mã Học Sinh: ";
             // 
             // lblHoTen
             // 
@@ -149,9 +149,9 @@
             this.label7.Location = new System.Drawing.Point(188, 436);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 31);
+            this.label7.Size = new System.Drawing.Size(84, 39);
             this.label7.TabIndex = 26;
-            this.label7.Text = "Môn Dạy:";
+            this.label7.Text = "Lớp:";
             // 
             // lblNgaySinh
             // 
@@ -193,9 +193,9 @@
             this.lblMonDay.Location = new System.Drawing.Point(403, 436);
             this.lblMonDay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonDay.Name = "lblMonDay";
-            this.lblMonDay.Size = new System.Drawing.Size(122, 31);
+            this.lblMonDay.Size = new System.Drawing.Size(74, 39);
             this.lblMonDay.TabIndex = 26;
-            this.lblMonDay.Text = "Môn Dạy";
+            this.lblMonDay.Text = "Lớp";
             // 
             // lblSDT
             // 
@@ -208,7 +208,7 @@
             this.lblSDT.TabIndex = 26;
             this.lblSDT.Text = "SDT";
             // 
-            // uc_ThongTinCaNhanGV
+            // uc_ThongTinCaNhanHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,8 +227,8 @@
             this.Controls.Add(this.lblHoTen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "uc_ThongTinCaNhanGV";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "uc_ThongTinCaNhanHS";
             this.Size = new System.Drawing.Size(1644, 801);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using MongoDB.Bson;
 using QLHOCSINHCAP3.Thuvien;
 using QLHOCSINHCAP3.UI;
 using System;
@@ -13,17 +14,29 @@ using System.Windows.Forms;
 namespace QLHOCSINHCAP3 {
     public partial class frmGiaoVien : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm {
         private string maGiaoVien;
-        public frmGiaoVien(string maGiaoVien) {
+        public ObjectId userSend { set; get; }
+        public ObjectId userRecive { set; get; }
+        public frmGiaoVien(string maGiaoVien, ObjectId _userSend, ObjectId _userRecevie) {
             InitializeComponent();
             this.maGiaoVien = maGiaoVien;
-
+            this.userSend = _userSend;
+            this.userRecive = _userRecevie;
 
         }
         uc_TrangChu ucTrangChu;
-        uc_ThoiKhoaBieu ucThoiKhoaBieu;
+        uc_ThoiKhoaBieuGV ucThoiKhoaBieuGV;
         uc_LopDay ucLopDay;
         uc_DoiMatKhau ucDoiMatKhau;
         uc_ThongTinCaNhanGV ucThongTinCaNhan;
+        uc_Chat ucChat;
+        uc_ChatSV ucChatSV;
+        uc_chat_all ucchatall;
+        private ObjectId _objectId;
+
+        public void SetObjects(ObjectId objectId)
+        {
+            _objectId = objectId;
+        }
         private void mnTrangChu_Click(object sender, EventArgs e) {
 
             if (ucTrangChu == null) { 
@@ -51,14 +64,14 @@ namespace QLHOCSINHCAP3 {
         }
 
         private void mnThoiKhoaBieu_Click(object sender, EventArgs e) {
-            if (ucThoiKhoaBieu == null) {
-                ucThoiKhoaBieu = new uc_ThoiKhoaBieu();
-                ucThoiKhoaBieu.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucThoiKhoaBieu);
-                ucThoiKhoaBieu.BringToFront();
+            if (ucThoiKhoaBieuGV == null) {
+                ucThoiKhoaBieuGV = new uc_ThoiKhoaBieuGV(maGiaoVien);
+                ucThoiKhoaBieuGV.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucThoiKhoaBieuGV);
+                ucThoiKhoaBieuGV.BringToFront();
 
             } else
-                ucThoiKhoaBieu.BringToFront();
+                ucThoiKhoaBieuGV.BringToFront();
             lblTieuDe.Caption = mnThoiKhoaBieu.Text;
         }
 
@@ -97,5 +110,20 @@ namespace QLHOCSINHCAP3 {
             ucTrangChu.BringToFront();
             lblTieuDe.Caption = mnTrangChu.Text;
         }
+
+        private void mnchat_Click(object sender, EventArgs e)
+        {
+            if (ucchatall == null)
+            {
+                ucchatall = new uc_chat_all(userSend, new ObjectId());
+                ucchatall.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucchatall);
+                ucchatall.BringToFront();
+            }
+            else
+                ucchatall.BringToFront();
+            lblTieuDe.Caption = ucchatall.Text;
+        }
     }
 }
+

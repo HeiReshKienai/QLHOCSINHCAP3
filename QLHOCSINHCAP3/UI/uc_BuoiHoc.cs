@@ -51,7 +51,7 @@ namespace QLHOCSINHCAP3.UI {
             dgvBuoiHoc.Columns["GiaoVien"].HeaderText = "Giáo Viên";
             dgvBuoiHoc.Columns["GiaoVien"].Width = 150;
             dgvBuoiHoc.Columns["Ngay"].HeaderText = "Ngày Học";
-            dgvBuoiHoc.Columns["Ngay"].Width = 150;
+            dgvBuoiHoc.Columns["Ngay"].Width = 110;
             dgvBuoiHoc.Columns["Buoi"].HeaderText = "Buổi";
             dgvBuoiHoc.Columns["Buoi"].Width = 150;
             dgvBuoiHoc.Columns["Tiet"].HeaderText = "Tiết";
@@ -81,15 +81,32 @@ namespace QLHOCSINHCAP3.UI {
 
             cbbMaLop.SelectedIndex = 0;
             cbbMonHoc.SelectedIndex = 0;
-            
+
             cbbBuoiSo.SelectedIndex = 0;
             cbbTiet.SelectedIndex = 0;
             dgvBuoiHoc.ClearSelection();
         }
         private void btnThem_Click(object sender, EventArgs e) {
             //kiem tra rong ma~
+            if (cbbMaLop.Text == "Chưa Chọn Lớp") {
+                MessageBox.Show("Vui lòng Lớp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbMonHoc.Text == "Chưa Chọn Môn") {
+                MessageBox.Show("Vui lòng Chọn Môn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbGiaoVien.Text == "Vui Lòng Chọn Môn") {
+                MessageBox.Show("Vui lòng chọn Môn rồi chọn Giáo Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbGiaoVien.Text == "Chưa Chọn Giáo Viên") {
+                MessageBox.Show("Vui lòng chọn  Giáo Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            BuoiHoc gv = new BuoiHoc(cbbMaLop.Text, cbbMonHoc.Text,cbbGiaoVien.Text, dtpNgaySinh.Text, cbbBuoiSo.Text, cbbTiet.Text);
+
+            BuoiHoc gv = new BuoiHoc(cbbMaLop.Text, cbbMonHoc.Text,cbbGiaoVien.Text, dtpNgay.Value.Date.AddDays(1).Date, cbbBuoiSo.Text, cbbTiet.Text);
 
             collectionBuoiHoc.InsertOne(gv);
 
@@ -104,9 +121,9 @@ namespace QLHOCSINHCAP3.UI {
 
 
             string objectIdToDelete = dgvBuoiHoc.CurrentRow.Cells[0].Value.ToString();
-            var filter = Builders<GiaoVien>.Filter.Eq("_id", ObjectId.Parse(objectIdToDelete));
+            var filter = Builders<BuoiHoc>.Filter.Eq("_id", ObjectId.Parse(objectIdToDelete));
 
-            collectionGiaoVien.DeleteOne(filter);
+            collectionBuoiHoc.DeleteOne(filter);
 
             readData();
             ClearTextBoxes();
@@ -116,8 +133,24 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng chọn một Giáo viên để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (cbbMaLop.Text == "Chưa Chọn Lớp") {
+                MessageBox.Show("Vui lòng Lớp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbMonHoc.Text == "Chưa Chọn Môn") {
+                MessageBox.Show("Vui lòng Chọn Môn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbGiaoVien.Text == "Vui Lòng Chọn Môn") {
+                MessageBox.Show("Vui lòng chọn Môn rồi chọn Giáo Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cbbGiaoVien.Text == "Chưa Chọn Giáo Viên") {
+                MessageBox.Show("Vui lòng chọn  Giáo Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            BuoiHoc gv = new BuoiHoc(cbbMaLop.Text, cbbMonHoc.Text, cbbGiaoVien.Text, dtpNgaySinh.Text, cbbBuoiSo.Text, cbbTiet.Text);
+            BuoiHoc gv = new BuoiHoc(cbbMaLop.Text, cbbMonHoc.Text, cbbGiaoVien.Text, dtpNgay.Value.Date.AddDays(1), cbbBuoiSo.Text, cbbTiet.Text);
             gv.Id = new ObjectId(dgvBuoiHoc.CurrentRow.Cells[0].Value.ToString());
 
             var update = Builders<BuoiHoc>.Update
@@ -158,6 +191,23 @@ namespace QLHOCSINHCAP3.UI {
                 cbbGiaoVien.DataSource = null;
                 cbbGiaoVien.Items.Add("Vui Lòng Chọn Môn");
                 cbbGiaoVien.SelectedIndex = 0;
+            }
+        }
+        private void dgvBuoiHoc_CellClick(object sender, DataGridViewCellEventArgs e) {
+            // Kiểm tra xem chỉ số hàng có hợp lệ và DataGridView không rỗng
+            if (e.RowIndex >= 0 && dgvBuoiHoc.Rows.Count > 0) {
+                int index = e.RowIndex;
+                // Kiểm tra xem chỉ số cột có hợp lệ
+                if (index < dgvBuoiHoc.Rows[index].Cells.Count) {
+                    cbbMaLop.Text = dgvBuoiHoc.Rows[index].Cells[1].Value?.ToString();
+                    cbbMonHoc.Text = dgvBuoiHoc.Rows[index].Cells[2].Value?.ToString();
+                    cbbGiaoVien.Text = dgvBuoiHoc.Rows[index].Cells[3].Value?.ToString();
+                    dtpNgay.Text = dgvBuoiHoc.Rows[index].Cells[4].Value?.ToString();
+                    cbbBuoiSo.Text = dgvBuoiHoc.Rows[index].Cells[5].Value?.ToString();
+                    cbbTiet.Text = dgvBuoiHoc.Rows[index].Cells[6].Value?.ToString();
+
+
+                }
             }
         }
     }

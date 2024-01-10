@@ -179,6 +179,7 @@
     <Compile Include="Thuvien\BuoiHoc.cs" />
     <Compile Include="Thuvien\GiaoVien.cs" />
     <Compile Include="Thuvien\LopHoc.cs" />
+    <Compile Include="Thuvien\MessageChat_.cs" />
     <Compile Include="Thuvien\MonHoc.cs" />
     <Compile Include="Thuvien\TaiKhoanGiaoVien.cs" />
     <Compile Include="Thuvien\TaiKhoanHocSinh.cs" />
@@ -188,6 +189,24 @@
     </Compile>
     <Compile Include="UI\uc_BuoiHoc.Designer.cs">
       <DependentUpon>uc_BuoiHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_Chat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Chat.Designer.cs">
+      <DependentUpon>uc_Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_ChatSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_ChatSV.Designer.cs">
+      <DependentUpon>uc_ChatSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_chat_all.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_chat_all.Designer.cs">
+      <DependentUpon>uc_chat_all.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_DoiMatKhau.cs">
       <SubType>UserControl</SubType>
@@ -237,11 +256,23 @@
     <Compile Include="UI\uc_QuanLyTaiKhoanHocSinh.Designer.cs">
       <DependentUpon>uc_QuanLyTaiKhoanHocSinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\uc_ThoiKhoaBieu.cs">
+    <Compile Include="UI\uc_ThoiKhoaBieuGV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\uc_ThoiKhoaBieu.Designer.cs">
-      <DependentUpon>uc_ThoiKhoaBieu.cs</DependentUpon>
+    <Compile Include="UI\uc_ThoiKhoaBieuGV.Designer.cs">
+      <DependentUpon>uc_ThoiKhoaBieuGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_ThoiKhoaBieuHS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_ThoiKhoaBieuHS.Designer.cs">
+      <DependentUpon>uc_ThoiKhoaBieuHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_ThongTinCaNhanHS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_ThongTinCaNhanHS.Designer.cs">
+      <DependentUpon>uc_ThongTinCaNhanHS.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_ThongTinCaNhanGV.cs">
       <SubType>UserControl</SubType>
@@ -292,6 +323,15 @@
     <EmbeddedResource Include="UI\uc_BuoiHoc.resx">
       <DependentUpon>uc_BuoiHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Chat.resx">
+      <DependentUpon>uc_Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_ChatSV.resx">
+      <DependentUpon>uc_ChatSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_chat_all.resx">
+      <DependentUpon>uc_chat_all.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_DoiMatKhau.resx">
       <DependentUpon>uc_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,8 +356,14 @@
     <EmbeddedResource Include="UI\uc_QuanLyTaiKhoanHocSinh.resx">
       <DependentUpon>uc_QuanLyTaiKhoanHocSinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\uc_ThoiKhoaBieu.resx">
-      <DependentUpon>uc_ThoiKhoaBieu.cs</DependentUpon>
+    <EmbeddedResource Include="UI\uc_ThoiKhoaBieuGV.resx">
+      <DependentUpon>uc_ThoiKhoaBieuGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_ThoiKhoaBieuHS.resx">
+      <DependentUpon>uc_ThoiKhoaBieuHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_ThongTinCaNhanHS.resx">
+      <DependentUpon>uc_ThongTinCaNhanHS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_ThongTinCaNhanGV.resx">
       <DependentUpon>uc_ThongTinCaNhanGV.cs</DependentUpon>

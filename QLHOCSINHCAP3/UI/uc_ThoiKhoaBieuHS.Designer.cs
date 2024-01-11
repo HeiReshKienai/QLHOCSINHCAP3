@@ -315,7 +315,7 @@
             // btnTien
             // 
             this.btnTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTien.Location = new System.Drawing.Point(938, 19);
+            this.btnTien.Location = new System.Drawing.Point(643, 16);
             this.btnTien.Name = "btnTien";
             this.btnTien.Size = new System.Drawing.Size(166, 40);
             this.btnTien.TabIndex = 7;
@@ -326,7 +326,7 @@
             // btnLui
             // 
             this.btnLui.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLui.Location = new System.Drawing.Point(393, 16);
+            this.btnLui.Location = new System.Drawing.Point(285, 16);
             this.btnLui.Name = "btnLui";
             this.btnLui.Size = new System.Drawing.Size(157, 40);
             this.btnLui.TabIndex = 6;
@@ -338,7 +338,7 @@
             // 
             this.lblTuan.AutoSize = true;
             this.lblTuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuan.Location = new System.Drawing.Point(611, 31);
+            this.lblTuan.Location = new System.Drawing.Point(448, 31);
             this.lblTuan.Name = "lblTuan";
             this.lblTuan.Size = new System.Drawing.Size(107, 25);
             this.lblTuan.TabIndex = 5;
@@ -2164,7 +2164,7 @@
             this.thu8tiet10.TabIndex = 0;
             this.thu8tiet10.Text = "Trống";
             // 
-            // uc_ThoiKhoaBieu
+            // uc_ThoiKhoaBieuHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2263,7 +2263,7 @@
             this.Controls.Add(this.btnLui);
             this.Controls.Add(this.lblTuan);
             this.Controls.Add(this.label1);
-            this.Name = "uc_ThoiKhoaBieu";
+            this.Name = "uc_ThoiKhoaBieuHS";
             this.Size = new System.Drawing.Size(1397, 645);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -25,7 +25,7 @@ namespace QLHOCSINHCAP3 {
         }
         uc_TrangChu ucTrangChu;
         uc_ThoiKhoaBieuGV ucThoiKhoaBieuGV;
-        uc_LopDay ucLopDay;
+        uc_DiemDanh ucDiemDanh;
         uc_DoiMatKhau ucDoiMatKhau;
         uc_ThongTinCaNhanGV ucThongTinCaNhan;
         uc_Chat ucChat;
@@ -76,15 +76,15 @@ namespace QLHOCSINHCAP3 {
         }
 
         private void mnLopDay_Click(object sender, EventArgs e) {
-            if (ucLopDay == null) {
-                ucLopDay = new uc_LopDay();
-                ucLopDay.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucLopDay);
-                ucLopDay.BringToFront();
+            if (ucDiemDanh == null) {
+                ucDiemDanh = new uc_DiemDanh(maGiaoVien);
+                ucDiemDanh.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucDiemDanh);
+                ucDiemDanh.BringToFront();
 
             } else
-                ucLopDay.BringToFront();
-            lblTieuDe.Caption = mnLopDay.Text;
+                ucDiemDanh.BringToFront();
+            lblTieuDe.Caption = mnDiemDanh.Text;
         }
 
         private void mnDoiMatKhau_Click(object sender, EventArgs e) {

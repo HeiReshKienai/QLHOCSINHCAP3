@@ -105,6 +105,7 @@ namespace QLHOCSINHCAP3 {
                     return;
                 } else {
                     MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
+                    return;
                 }
             }
             if (loaitk == "Học Sinh") {
@@ -123,12 +124,10 @@ namespace QLHOCSINHCAP3 {
                     return;
                 } else {
                     MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
+                    return;
                 }
             } 
-            else {
-                MessageBox.Show("Tên Đăng Nhập Hoặc Mật Khẩu Không Chính Xác");
-
-            }
+            
 
         }
 

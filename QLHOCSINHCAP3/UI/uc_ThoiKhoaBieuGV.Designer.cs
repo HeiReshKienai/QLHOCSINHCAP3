@@ -315,7 +315,7 @@
             // btnTien
             // 
             this.btnTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTien.Location = new System.Drawing.Point(811, 16);
+            this.btnTien.Location = new System.Drawing.Point(692, 16);
             this.btnTien.Name = "btnTien";
             this.btnTien.Size = new System.Drawing.Size(166, 40);
             this.btnTien.TabIndex = 7;
@@ -326,7 +326,7 @@
             // btnLui
             // 
             this.btnLui.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLui.Location = new System.Drawing.Point(393, 16);
+            this.btnLui.Location = new System.Drawing.Point(274, 16);
             this.btnLui.Name = "btnLui";
             this.btnLui.Size = new System.Drawing.Size(157, 40);
             this.btnLui.TabIndex = 6;
@@ -338,7 +338,7 @@
             // 
             this.lblTuan.AutoSize = true;
             this.lblTuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuan.Location = new System.Drawing.Point(611, 31);
+            this.lblTuan.Location = new System.Drawing.Point(437, 24);
             this.lblTuan.Name = "lblTuan";
             this.lblTuan.Size = new System.Drawing.Size(107, 25);
             this.lblTuan.TabIndex = 5;

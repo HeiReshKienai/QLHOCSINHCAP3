@@ -207,8 +207,8 @@ namespace QLHOCSINHCAP3.UI {
                     cbbGioiTinh.Text = dgvQLHS.Rows[index].Cells[4].Value?.ToString();
                     txtDiaChi.Text = dgvQLHS.Rows[index].Cells[6].Value?.ToString();
                     txtSdt.Text = dgvQLHS.Rows[index].Cells[7].Value?.ToString();
-                    cbbNamHoc.Text = dgvQLHS.Rows[index].Cells[8].Value?.ToString();
-                    txtHoTenPhuHuynh.Text = dgvQLHS.Rows[index].Cells[9].Value?.ToString();
+                    cbbNamHoc.Text = dgvQLHS.Rows[index].Cells[9].Value?.ToString();
+                    txtHoTenPhuHuynh.Text = dgvQLHS.Rows[index].Cells[8].Value?.ToString();
 
                 }
             }

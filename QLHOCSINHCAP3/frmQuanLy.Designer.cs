@@ -29,7 +29,6 @@
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.mnTrangChu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator3 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.mnThongTinCaNhan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQuanLyGiaoVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -71,7 +70,6 @@
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnTrangChu,
             this.accordionControlSeparator3,
-            this.mnThongTinCaNhan,
             this.accordionControlSeparator4,
             this.accordionControlElement2,
             this.accordionControlSeparator5,
@@ -99,20 +97,6 @@
             // accordionControlSeparator3
             // 
             this.accordionControlSeparator3.Name = "accordionControlSeparator3";
-            // 
-            // mnThongTinCaNhan
-            // 
-            this.mnThongTinCaNhan.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mnThongTinCaNhan.Appearance.Default.Options.UseFont = true;
-            this.mnThongTinCaNhan.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Left),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
-            this.mnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnThongTinCaNhan.ImageOptions.Image")));
-            this.mnThongTinCaNhan.Name = "mnThongTinCaNhan";
-            this.mnThongTinCaNhan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnThongTinCaNhan.Text = "TRANG CHỦ";
             // 
             // accordionControlSeparator4
             // 
@@ -283,7 +267,6 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement mnThongTinCaNhan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnDangXuat;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnTrangChu;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;

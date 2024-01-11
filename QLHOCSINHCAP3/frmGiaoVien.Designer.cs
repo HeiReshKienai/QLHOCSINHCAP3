@@ -33,7 +33,7 @@
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnThoiKhoaBieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.mnLopDay = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnDiemDanh = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator5 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
@@ -52,10 +52,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(330, 39);
+            this.mainContainer.Location = new System.Drawing.Point(330, 31);
             this.mainContainer.Margin = new System.Windows.Forms.Padding(6);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(1218, 594);
+            this.mainContainer.Size = new System.Drawing.Size(1218, 602);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
@@ -74,11 +74,11 @@
             this.accordionControlSeparator5,
             this.accordionControlElement1,
             this.mnchat});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 39);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(330, 594);
+            this.accordionControl1.Size = new System.Drawing.Size(330, 602);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -121,7 +121,8 @@
             // 
             this.accordionControlElement6.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnThoiKhoaBieu,
-            this.mnLopDay});
+            this.mnDiemDanh});
+            this.accordionControlElement6.Expanded = true;
             this.accordionControlElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement6.ImageOptions.Image")));
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Text = "LỚP HỌC";
@@ -134,13 +135,13 @@
             this.mnThoiKhoaBieu.Text = "Thời Khóa Biểu";
             this.mnThoiKhoaBieu.Click += new System.EventHandler(this.mnThoiKhoaBieu_Click);
             // 
-            // mnLopDay
+            // mnDiemDanh
             // 
-            this.mnLopDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnLopDay.ImageOptions.Image")));
-            this.mnLopDay.Name = "mnLopDay";
-            this.mnLopDay.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnLopDay.Text = "Lớp Dạy";
-            this.mnLopDay.Click += new System.EventHandler(this.mnLopDay_Click);
+            this.mnDiemDanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnLopDay.ImageOptions.Image")));
+            this.mnDiemDanh.Name = "mnDiemDanh";
+            this.mnDiemDanh.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnDiemDanh.Text = "Điểm Danh Lớp Chủ Nhiệm";
+            this.mnDiemDanh.Click += new System.EventHandler(this.mnLopDay_Click);
             // 
             // accordionControlSeparator5
             // 
@@ -152,6 +153,7 @@
             this.accordionControlSeparator1,
             this.mnDoiMatKhau,
             this.mnDangXuat});
+            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "CÀI ĐẶT TÀI KHOẢN";
@@ -199,7 +201,7 @@
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1548, 39);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1548, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieuDe);
@@ -235,7 +237,7 @@
             // frmGiaoVien
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1548, 633);
             this.ControlContainer = this.mainContainer;
@@ -273,7 +275,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnThoiKhoaBieu;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement mnLopDay;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnDiemDanh;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator5;
         private DevExpress.XtraBars.BarStaticItem lblTieuDe;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;

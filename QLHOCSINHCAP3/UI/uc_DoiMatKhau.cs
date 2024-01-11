@@ -51,6 +51,7 @@ namespace QLHOCSINHCAP3.UI {
 
         private void uc_DoiMatKhau_Click(object sender, EventArgs e) {
             string tentk = maGiaoVien;
+            string matkhaucu = txMatKhauCu.Text;
             string matkhau = txtMatKhau.Text;
             string nhaplaimatkhau = txtNhapLaiMatKhau.Text;
             string hashPassword = HashPassword(matkhau);
@@ -58,6 +59,12 @@ namespace QLHOCSINHCAP3.UI {
 
             //hàm kiểm tra xem nhập đúng yêu cầu không nếu không sẽ thông báo
 
+            
+
+            if (string.IsNullOrEmpty(matkhaucu)) {
+                MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông Báo");
+                return;
+            }
 
             if (string.IsNullOrEmpty(matkhau)) {
                 MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông Báo");
@@ -68,6 +75,11 @@ namespace QLHOCSINHCAP3.UI {
                 MessageBox.Show("Vui lòng xác nhận mật khẩu chính xác", "Thông Báo");
                 return;
             }
+            if (matkhaucu==matkhau) {
+                MessageBox.Show("Mật khẩu mới không được giống mật khẩu cũ !", "Thông Báo");
+                return;
+            }
+
 
 
 
@@ -76,19 +88,29 @@ namespace QLHOCSINHCAP3.UI {
 
             var dulieuTKGV = collectionTaiKhoanGiaoVien.Find(new BsonDocument()).ToList();
 
+            var accountExists1 = dulieuTKGV.Any(gv => gv.MaGV == tentk && gv.MatKhau == HashPassword(matkhaucu));
+            if (!accountExists1) {
+                MessageBox.Show("Mật khẩu cũ không chính xác!", "Thông Báo");
+                return;
+            }
             var accountExists = dulieuTKGV.Any(gv => gv.MaGV == tentk);
             if (accountExists) {
                 MessageBox.Show("Đổi mật khẩu thành công!", "Thông Báo");
+                
 
                 var filter = Builders<TaiKhoanGiaoVien>.Filter.Where(gv => gv.MaGV == tentk || gv.Email == tentk);
                 var update = Builders<TaiKhoanGiaoVien>.Update.Set(gv => gv.MatKhau, hashPassword);
 
                 collectionTaiKhoanGiaoVien.UpdateOne(filter, update);
 
+                
+
 
                 return;
             }
         }
+
+
     }
 
        

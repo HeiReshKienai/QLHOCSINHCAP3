@@ -64,6 +64,7 @@
             this.txtMatKhau.Size = new System.Drawing.Size(302, 35);
             this.txtMatKhau.TabIndex = 31;
             this.txtMatKhau.TabStop = false;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txMatKhauCu
             // 
@@ -75,6 +76,7 @@
             this.txMatKhauCu.Size = new System.Drawing.Size(302, 35);
             this.txMatKhauCu.TabIndex = 32;
             this.txMatKhauCu.TabStop = false;
+            this.txMatKhauCu.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -108,6 +110,7 @@
             this.txtNhapLaiMatKhau.Size = new System.Drawing.Size(302, 35);
             this.txtNhapLaiMatKhau.TabIndex = 35;
             this.txtNhapLaiMatKhau.TabStop = false;
+            this.txtNhapLaiMatKhau.UseSystemPasswordChar = true;
             // 
             // btnLayLaiMatKhau
             // 
@@ -122,6 +125,7 @@
             this.btnLayLaiMatKhau.TabIndex = 36;
             this.btnLayLaiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnLayLaiMatKhau.UseVisualStyleBackColor = false;
+            this.btnLayLaiMatKhau.Click += new System.EventHandler(this.uc_DoiMatKhau_Click);
             // 
             // uc_DoiMatKhau
             // 
@@ -137,7 +141,6 @@
             this.Controls.Add(this.label1);
             this.Name = "uc_DoiMatKhau";
             this.Size = new System.Drawing.Size(1267, 677);
-            this.Click += new System.EventHandler(this.uc_DoiMatKhau_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

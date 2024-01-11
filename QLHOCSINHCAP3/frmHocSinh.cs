@@ -25,7 +25,7 @@ namespace QLHOCSINHCAP3 {
         public ObjectId userRecive { set; get; }
         uc_TrangChu ucTrangChu;
         uc_ThoiKhoaBieuHS ucThoiKhoaBieu;
-        uc_LopDay ucLopDay;
+        uc_DiemDanh ucLopDay;
         uc_DoiMatKhau ucDoiMatKhau;
         uc_ThongTinCaNhanHS ucThongTinCaNhan;
         uc_chat_all ucChatAll;
@@ -67,17 +67,17 @@ namespace QLHOCSINHCAP3 {
             lblTieuDe.Caption = mnThoiKhoaBieu.Text;
         }
 
-        private void mnLopDay_Click(object sender, EventArgs e) {
-            if (ucLopDay == null) {
-                ucLopDay = new uc_LopDay();
-                ucLopDay.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucLopDay);
-                ucLopDay.BringToFront();
+        //private void mnLopDay_Click(object sender, EventArgs e) {
+        //    if (ucLopDay == null) {
+        //        ucLopDay = new uc_LopDay();
+        //        ucLopDay.Dock = DockStyle.Fill;
+        //        mainContainer.Controls.Add(ucLopDay);
+        //        ucLopDay.BringToFront();
 
-            } else
-                ucLopDay.BringToFront();
-            lblTieuDe.Caption = mnLopDay.Text;
-        }
+        //    } else
+        //        ucLopDay.BringToFront();
+        //    lblTieuDe.Caption = mnLopDay.Text;
+        //}
 
         private void mnDoiMatKhau_Click(object sender, EventArgs e) {
             if (ucDoiMatKhau == null) {

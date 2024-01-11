@@ -254,7 +254,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "frmDangKy";
-            this.Text = "frmDangKy";
+            this.Text = "Đăng Ký";
             this.Load += new System.EventHandler(this.frmDangKy_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -228,7 +228,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "frmQuenMatKhau";
-            this.Text = "frmQuenMatKhau";
+            this.Text = "Quên Mật Khẩu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

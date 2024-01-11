@@ -117,7 +117,7 @@ namespace QLHOCSINHCAP3 {
                 mainContainer.Controls.Add(ucQuanLyTaiKhoanHocSinh);
             }
             ucQuanLyTaiKhoanHocSinh.BringToFront();
-            lblTieuDe.Caption = ucQuanLyTaiKhoanHocSinh.Text;
+            lblTieuDe.Caption = mnQuanLyTaiKhoanHS.Text;
         }
 
         private void mnQuanLyTaiKhoanGV_Click(object sender, EventArgs e) {
@@ -134,7 +134,7 @@ namespace QLHOCSINHCAP3 {
                 mainContainer.Controls.Add(ucQuanLyTaiKhoanGiaoVien);
             }
             ucQuanLyTaiKhoanGiaoVien.BringToFront();
-            lblTieuDe.Caption = ucQuanLyTaiKhoanGiaoVien.Text;
+            lblTieuDe.Caption = mnQuanLyTaiKhoanGV.Text;
         }
 
         private void mnQuanLyGiaoVien_Click(object sender, EventArgs e) {
